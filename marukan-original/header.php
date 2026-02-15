@@ -46,16 +46,14 @@
                         'walker'         => new Marukan_Original_Tailwind_Walker(),
                     ));
                 } else {
+                    $home_url = esc_url(home_url('/'));
                     ?>
-                    <a href="#news" class="text-sm font-bold hover:text-marukanBlue transition">お知らせ</a>
-                    <a href="#message" class="text-sm font-bold hover:text-marukanBlue transition">メッセージ</a>
-                    <a href="#mvv" class="text-sm font-bold hover:text-marukanBlue transition">企業理念</a>
-                    <a href="#products-cases" class="text-sm font-bold hover:text-marukanBlue transition">商品案内</a>
-                    <a href="#history" class="text-sm font-bold hover:text-marukanBlue transition">歩み</a>
-                    <a href="#members" class="text-sm font-bold hover:text-marukanBlue transition">働く仲間</a>
-                    <a href="#recruit" class="text-sm font-bold hover:text-marukanBlue transition">採用情報</a>
-                    <a href="#company" class="text-sm font-bold hover:text-marukanBlue transition">会社概要</a>
-                    <a href="#contact" class="bg-marukanBlue text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-800 transition">お問い合わせ</a>
+                    <a href="<?php echo $home_url; ?>#news" class="text-sm font-bold hover:text-marukanBlue transition">お知らせ</a>
+                    <a href="<?php echo $home_url; ?>#products-cases" class="text-sm font-bold hover:text-marukanBlue transition">商品案内・事例</a>
+                    <a href="<?php echo $home_url; ?>#members" class="text-sm font-bold hover:text-marukanBlue transition">働く仲間</a>
+                    <a href="<?php echo $home_url; ?>#recruit" class="text-sm font-bold hover:text-marukanBlue transition">採用情報</a>
+                    <a href="<?php echo $home_url; ?>#company" class="text-sm font-bold hover:text-marukanBlue transition">会社概要</a>
+                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="bg-marukanBlue text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-800 transition">お問い合わせ</a>
                     <?php
                 }
                 ?>
@@ -82,16 +80,14 @@
                         'walker'         => new Marukan_Original_Tailwind_Mobile_Walker(),
                     ));
                 } else {
+                    $home_url = esc_url(home_url('/'));
                     ?>
-                    <a href="#news" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">お知らせ</a>
-                    <a href="#message" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">代表メッセージ</a>
-                    <a href="#mvv" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">企業理念</a>
-                    <a href="#products-cases" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">商品案内</a>
-                    <a href="#history" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">歩み</a>
-                    <a href="#members" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">働く仲間</a>
-                    <a href="#recruit" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">採用情報</a>
-                    <a href="#company" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">会社概要</a>
-                    <a href="#contact" class="bg-marukanBlue text-white px-6 py-4 rounded-xl text-center font-bold mobile-link">お問い合わせ</a>
+                    <a href="<?php echo $home_url; ?>#news" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">お知らせ</a>
+                    <a href="<?php echo $home_url; ?>#products-cases" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">商品案内・導入事例</a>
+                    <a href="<?php echo $home_url; ?>#members" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">働く仲間</a>
+                    <a href="<?php echo $home_url; ?>#recruit" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">採用情報</a>
+                    <a href="<?php echo $home_url; ?>#company" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">会社概要</a>
+                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="bg-marukanBlue text-white px-6 py-4 rounded-xl text-center font-bold mobile-link">お問い合わせ</a>
                     <?php
                 }
                 ?>

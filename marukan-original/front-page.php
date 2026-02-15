@@ -136,7 +136,7 @@
                 <h2 class="text-3xl font-bold">お知らせ</h2>
                 <span class="text-gray-400 tracking-widest uppercase text-xs">News</span>
             </div>
-            <a href="#" class="text-marukanBlue font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all mt-4 md:mt-0">
+            <a href="<?php echo get_post_type_archive_link('post'); ?>" class="text-marukanBlue font-bold text-sm flex items-center gap-2 hover:gap-4 transition-all mt-4 md:mt-0">
                 一覧を見る
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </a>
@@ -221,9 +221,9 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Mission -->
-            <div class="bg-white p-12 rounded-[2rem] shadow-sm hover:shadow-xl hover:shadow-marukanBlue/10 transition-all duration-500 group border border-gray-100">
-                <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-marukanBlue transition-colors duration-500">
-                    <svg class="w-10 h-10 text-marukanBlue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="bg-white p-12 rounded-[2rem] shadow-sm border border-gray-100">
+                <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-8">
+                    <svg class="w-10 h-10 text-marukanBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
                     </svg>
                 </div>
@@ -234,9 +234,9 @@
             </div>
 
             <!-- Vision -->
-            <div class="bg-white p-12 rounded-[2rem] shadow-sm hover:shadow-xl hover:shadow-marukanBlue/10 transition-all duration-500 group border border-gray-100">
-                <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-marukanBlue transition-colors duration-500">
-                    <svg class="w-10 h-10 text-marukanBlue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="bg-white p-12 rounded-[2rem] shadow-sm border border-gray-100">
+                <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-8">
+                    <svg class="w-10 h-10 text-marukanBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                     </svg>
@@ -248,9 +248,9 @@
             </div>
 
             <!-- Value -->
-            <div class="bg-white p-12 rounded-[2rem] shadow-sm hover:shadow-xl hover:shadow-marukanBlue/10 transition-all duration-500 group border border-gray-100">
-                <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-marukanBlue transition-colors duration-500">
-                    <svg class="w-10 h-10 text-marukanBlue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="bg-white p-12 rounded-[2rem] shadow-sm border border-gray-100">
+                <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-8">
+                    <svg class="w-10 h-10 text-marukanBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                 </div>
@@ -268,7 +268,7 @@
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Case Studies Card -->
-            <a href="#" class="group relative aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden rounded-[2.5rem] shadow-lg">
+            <a href="<?php echo get_post_type_archive_link('case_study'); ?>" class="group relative aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden rounded-[2.5rem] shadow-lg">
                 <img src="https://images.unsplash.com/photo-1543157145-f78c636d023d?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-marukanBlue/80 via-black/20 to-transparent"></div>
                 <div class="absolute bottom-10 left-10 text-white">
@@ -279,7 +279,7 @@
             </a>
 
             <!-- Products Card -->
-            <a href="#" class="group relative aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden rounded-[2.5rem] shadow-lg">
+            <a href="<?php echo get_post_type_archive_link('product'); ?>" class="group relative aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden rounded-[2.5rem] shadow-lg">
                 <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div class="absolute bottom-10 left-10 text-white">
@@ -394,7 +394,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <!-- New Graduate -->
-            <a href="#" class="group bg-white p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl hover:shadow-marukanBlue/20 hover:-translate-y-2 transition-all duration-500 border border-gray-100 flex flex-col justify-between">
+            <a href="<?php echo esc_url(home_url('/recruit/new-graduate/')); ?>" class="group bg-white p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl hover:shadow-marukanBlue/20 hover:-translate-y-2 transition-all duration-500 border border-gray-100 flex flex-col justify-between">
                 <div>
                     <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-marukanBlue transition-colors duration-500">
                         <svg class="w-8 h-8 text-marukanBlue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
@@ -411,7 +411,7 @@
             </a>
 
             <!-- Career -->
-            <a href="#" class="group bg-white p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl hover:shadow-marukanBlue/20 hover:-translate-y-2 transition-all duration-500 border border-gray-100 flex flex-col justify-between">
+            <a href="<?php echo esc_url(home_url('/recruit/career/')); ?>" class="group bg-white p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl hover:shadow-marukanBlue/20 hover:-translate-y-2 transition-all duration-500 border border-gray-100 flex flex-col justify-between">
                 <div>
                     <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-marukanBlue transition-colors duration-500">
                         <svg class="w-8 h-8 text-marukanBlue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -428,7 +428,7 @@
             </a>
 
             <!-- Part-time -->
-            <a href="#" class="group bg-white p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl hover:shadow-marukanBlue/20 hover:-translate-y-2 transition-all duration-500 border border-gray-100 flex flex-col justify-between">
+            <a href="<?php echo esc_url(home_url('/recruit/part-time/')); ?>" class="group bg-white p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl hover:shadow-marukanBlue/20 hover:-translate-y-2 transition-all duration-500 border border-gray-100 flex flex-col justify-between">
                 <div>
                     <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-marukanBlue transition-colors duration-500">
                         <svg class="w-8 h-8 text-marukanBlue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>

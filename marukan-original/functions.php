@@ -120,6 +120,18 @@ function marukan_original_customize_register($wp_customize) {
         'type' => 'textarea',
     ));
 
+    // History Content (JSON or simple text for now)
+    $wp_customize->add_setting('marukan_original_history', array(
+        'default' => '',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    $wp_customize->add_control('marukan_original_history', array(
+        'label' => __('History (Year|Event per line)', 'marukan-original'),
+        'section' => 'marukan_original_info',
+        'type' => 'textarea',
+        'description' => __('Enter one year and event per line, separated by | (e.g. 1977|Company established)', 'marukan-original'),
+    ));
+
     // Setting: Primary Color
     $wp_customize->add_setting('marukan_original_primary_color', array(
         'default' => '#004098',
@@ -164,15 +176,16 @@ add_action('customize_register', 'marukan_original_customize_register');
  * Register Custom Post Type: Products
  */
 function marukan_original_register_post_types() {
-    $labels = array(
-        'name' => _x('Products', 'Post Type General Name', 'marukan-original'),
-        'singular_name' => _x('Product', 'Post Type Singular Name', 'marukan-original'),
-        'menu_name' => __('Products', 'marukan-original'),
-        'all_items' => __('All Products', 'marukan-original'),
+    // Products
+    $product_labels = array(
+        'name' => _x('商品案内', 'Post Type General Name', 'marukan-original'),
+        'singular_name' => _x('商品', 'Post Type Singular Name', 'marukan-original'),
+        'menu_name' => __('商品案内', 'marukan-original'),
+        'all_items' => __('すべての商品', 'marukan-original'),
     );
-    $args = array(
-        'label' => __('Product', 'marukan-original'),
-        'labels' => $labels,
+    $product_args = array(
+        'label' => __('商品', 'marukan-original'),
+        'labels' => $product_labels,
         'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
         'taxonomies' => array('product_category'),
         'public' => true,
@@ -183,19 +196,59 @@ function marukan_original_register_post_types() {
         'has_archive' => true,
         'show_in_rest' => true,
     );
-    register_post_type('product', $args);
+    register_post_type('product', $product_args);
 
-    // Register Taxonomy: Product Categories
+    // Product Categories
     register_taxonomy('product_category', array('product'), array(
         'hierarchical' => true,
         'labels' => array(
-            'name' => __('Product Categories', 'marukan-original'),
-            'singular_name' => __('Product Category', 'marukan-original'),
+            'name' => __('商品カテゴリー', 'marukan-original'),
+            'singular_name' => __('商品カテゴリー', 'marukan-original'),
         ),
         'show_ui' => true,
         'show_in_rest' => true,
         'show_admin_column' => true,
     ));
+
+    // Case Studies (Success Stories)
+    $case_labels = array(
+        'name' => _x('導入事例', 'Post Type General Name', 'marukan-original'),
+        'singular_name' => _x('導入事例', 'Post Type Singular Name', 'marukan-original'),
+        'menu_name' => __('導入事例', 'marukan-original'),
+    );
+    $case_args = array(
+        'label' => __('導入事例', 'marukan-original'),
+        'labels' => $case_labels,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 6,
+        'menu_icon' => 'dashicons-awards',
+        'has_archive' => true,
+        'show_in_rest' => true,
+    );
+    register_post_type('case_study', $case_args);
+
+    // Members (Employees)
+    $member_labels = array(
+        'name' => _x('働く仲間', 'Post Type General Name', 'marukan-original'),
+        'singular_name' => _x('メンバー', 'Post Type Singular Name', 'marukan-original'),
+        'menu_name' => __('働く仲間', 'marukan-original'),
+    );
+    $member_args = array(
+        'label' => __('メンバー', 'marukan-original'),
+        'labels' => $member_labels,
+        'supports' => array('title', 'thumbnail', 'excerpt'),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 7,
+        'menu_icon' => 'dashicons-groups',
+        'has_archive' => false,
+        'show_in_rest' => true,
+    );
+    register_post_type('member', $member_args);
 }
 add_action('init', 'marukan_original_register_post_types');
 
