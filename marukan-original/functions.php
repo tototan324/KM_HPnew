@@ -24,6 +24,10 @@ function marukan_original_scripts() {
      */
     wp_enqueue_script('marukan-original-tailwind', 'https://cdn.tailwindcss.com', array(), null, false);
 
+    // Enqueue Swiper
+    wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', array(), '11.0.0');
+    wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.0.0', true);
+
     // Load Main Stylesheet
     wp_enqueue_style('marukan-original-style', get_stylesheet_uri());
 }
@@ -61,13 +65,35 @@ function marukan_original_customize_register($wp_customize) {
         'type' => 'textarea',
     ));
 
-    // Setting: Philosophy
-    $wp_customize->add_setting('marukan_original_philosophy', array(
-        'default' => '私たちは食を通じて、美味しさと幸せを創造し、人々の明るい食生活に貢献します。',
+    // Mission
+    $wp_customize->add_setting('marukan_original_mission', array(
+        'default' => '美味しさと戦略をセットで届ける。顧客の繁盛を創る',
         'sanitize_callback' => 'sanitize_textarea_field',
     ));
-    $wp_customize->add_control('marukan_original_philosophy', array(
-        'label' => __('Philosophy', 'marukan-original'),
+    $wp_customize->add_control('marukan_original_mission', array(
+        'label' => __('Mission', 'marukan-original'),
+        'section' => 'marukan_original_info',
+        'type' => 'textarea',
+    ));
+
+    // Vision
+    $wp_customize->add_setting('marukan_original_vision', array(
+        'default' => '「困ったら神戸まるかん」と一番に選ばれる、食のトータルソリューション・カンパニー。',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    $wp_customize->add_control('marukan_original_vision', array(
+        'label' => __('Vision', 'marukan-original'),
+        'section' => 'marukan_original_info',
+        'type' => 'textarea',
+    ));
+
+    // Value
+    $wp_customize->add_setting('marukan_original_value', array(
+        'default' => '納品をゴールとせず、顧客の売上アップをゴールとする達人集団',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    $wp_customize->add_control('marukan_original_value', array(
+        'label' => __('Value', 'marukan-original'),
         'section' => 'marukan_original_info',
         'type' => 'textarea',
     ));

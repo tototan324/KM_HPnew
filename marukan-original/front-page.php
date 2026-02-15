@@ -1,346 +1,355 @@
 <?php get_header(); ?>
 
-<!-- Main Visual (Carousel) -->
-<section class="relative h-screen flex items-center justify-center overflow-hidden bg-gray-100">
-    <div id="hero-carousel" class="absolute inset-0">
-        <!-- Slide 1 -->
-        <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
-            <div class="absolute inset-0 bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=2000')]">
-                <div class="absolute inset-0 bg-black/30"></div>
+<!-- Main Visual (Swiper Carousel) -->
+<section class="relative h-[80vh] md:h-screen overflow-hidden bg-gray-100">
+    <div class="swiper heroSwiper h-full w-full">
+        <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide relative">
+                <div class="absolute inset-0 bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=2000')]">
+                    <div class="absolute inset-0 bg-black/30"></div>
+                </div>
+                <div class="relative h-full flex items-center">
+                    <div class="container mx-auto px-4 text-white">
+                        <h1 class="text-4xl md:text-7xl font-bold mb-6 leading-tight slide-content">
+                            今求められる<br>食を届ける
+                        </h1>
+                        <p class="text-xl md:text-2xl mb-8 max-w-2xl slide-content opacity-90">
+                            卸売業と製造業の2つを軸に、全国へ美味しさと幸せを。
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="relative h-full flex items-center">
-                <div class="container mx-auto px-4 text-white">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight slide-up">
-                        今求められる<br>食を届ける
-                    </h1>
-                    <p class="text-xl md:text-2xl mb-8 max-w-2xl slide-up delay-100">
-                        卸売業と製造業の2つを軸に、全国へ美味しさと幸せを。
-                    </p>
-                    <a href="#products" class="inline-block bg-white text-marukanBlue px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-xl slide-up delay-200">
-                        商品を見る
-                    </a>
+            <!-- Slide 2 -->
+            <div class="swiper-slide relative">
+                <div class="absolute inset-0 bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80&w=2000')]">
+                    <div class="absolute inset-0 bg-black/40"></div>
+                </div>
+                <div class="relative h-full flex items-center">
+                    <div class="container mx-auto px-4 text-white">
+                        <h2 class="text-4xl md:text-7xl font-bold mb-6 leading-tight">
+                            品質への<br>あくなきこだわり
+                        </h2>
+                        <p class="text-xl md:text-2xl mb-8 max-w-2xl opacity-90">
+                            1977年の創業以来、安全で安心な食の提供を続けています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="swiper-slide relative">
+                <div class="absolute inset-0 bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1551462147-37885acc3c41?auto=format&fit=crop&q=80&w=2000')]">
+                    <div class="absolute inset-0 bg-black/40"></div>
+                </div>
+                <div class="relative h-full flex items-center">
+                    <div class="container mx-auto px-4 text-white">
+                        <h2 class="text-4xl md:text-7xl font-bold mb-6 leading-tight">
+                            食の未来を<br>切り拓く
+                        </h2>
+                        <p class="text-xl md:text-2xl mb-8 max-w-2xl opacity-90">
+                            SDGsに基づいた商品作りで社会に貢献します。
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Slide 2 -->
-        <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-            <div class="absolute inset-0 bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80&w=2000')]">
-                <div class="absolute inset-0 bg-black/40"></div>
-            </div>
-            <div class="relative h-full flex items-center">
-                <div class="container mx-auto px-4 text-white">
-                    <h2 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        品質への<br>あくなきこだわり
-                    </h2>
-                    <p class="text-xl md:text-2xl mb-8 max-w-2xl">
-                        1977年の創業以来、安全で安心な食の提供を続けています。
-                    </p>
-                    <a href="#about" class="inline-block bg-white text-marukanBlue px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-xl">
-                        会社案内
-                    </a>
+
+        <!-- Custom Progress Pagination -->
+        <div class="absolute bottom-12 left-0 w-full z-20 px-4">
+            <div class="container mx-auto flex gap-4">
+                <div class="hero-pagination-item flex-1 h-1 bg-white/30 relative cursor-pointer overflow-hidden rounded-full active" data-index="0">
+                    <div class="progress-bar absolute top-0 left-0 h-full bg-white w-0"></div>
+                </div>
+                <div class="hero-pagination-item flex-1 h-1 bg-white/30 relative cursor-pointer overflow-hidden rounded-full" data-index="1">
+                    <div class="progress-bar absolute top-0 left-0 h-full bg-white w-0"></div>
+                </div>
+                <div class="hero-pagination-item flex-1 h-1 bg-white/30 relative cursor-pointer overflow-hidden rounded-full" data-index="2">
+                    <div class="progress-bar absolute top-0 left-0 h-full bg-white w-0"></div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Carousel Controls -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex space-x-3 z-20">
-        <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition" data-index="0"></button>
-        <button class="carousel-dot w-3 h-3 rounded-full bg-white/50 hover:bg-white transition" data-index="1"></button>
-    </div>
+
+    <style>
+        .progress-bar {
+            transition: width 5000ms linear;
+        }
+        .hero-pagination-item.active .progress-bar {
+            width: 100%;
+        }
+        .hero-pagination-item.completed .progress-bar {
+            width: 100%;
+            transition: none;
+        }
+    </style>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.carousel-dot');
-            let currentSlide = 0;
+            const paginationItems = document.querySelectorAll('.hero-pagination-item');
+            const progressBars = document.querySelectorAll('.progress-bar');
+            const slideDuration = 5000;
 
-            function showSlide(index) {
-                slides.forEach(s => s.classList.add('opacity-0'));
-                slides[index].classList.remove('opacity-0');
-                slides[index].classList.add('opacity-100');
-
-                dots.forEach(d => d.classList.replace('bg-white', 'bg-white/50'));
-                dots[index].classList.replace('bg-white/50', 'bg-white');
-                currentSlide = index;
-            }
-
-            function nextSlide() {
-                let next = (currentSlide + 1) % slides.length;
-                showSlide(next);
-            }
-
-            dots.forEach((dot, idx) => {
-                dot.addEventListener('click', () => showSlide(idx));
+            const swiper = new Swiper('.heroSwiper', {
+                loop: true,
+                effect: 'fade',
+                fadeEffect: { crossFade: true },
+                autoplay: {
+                    delay: slideDuration,
+                    disableOnInteraction: false,
+                },
+                on: {
+                    slideChange: function() {
+                        const activeIndex = this.realIndex;
+                        paginationItems.forEach((item, idx) => {
+                            item.classList.remove('active', 'completed');
+                            if (idx < activeIndex) {
+                                item.classList.add('completed');
+                            } else if (idx === activeIndex) {
+                                item.classList.add('active');
+                            }
+                        });
+                    }
+                }
             });
 
-            setInterval(nextSlide, 5000);
-            showSlide(0); // Init
+            paginationItems.forEach((item, idx) => {
+                item.addEventListener('click', () => {
+                    swiper.slideToLoop(idx);
+                });
+            });
         });
     </script>
 </section>
 
-<!-- News Section -->
-<section id="news" class="py-20 bg-white">
+<!-- Representative Message Section -->
+<section id="message" class="py-24 bg-white overflow-hidden">
     <div class="container mx-auto px-4">
-        <div class="flex justify-between items-end mb-12">
-            <div>
-                <h2 class="text-3xl font-bold mb-2">お知らせ</h2>
-                <p class="text-gray-500">NEWS</p>
+        <div class="flex flex-col md:flex-row items-center gap-16">
+            <div class="w-full md:w-1/2">
+                <div class="relative">
+                    <div class="aspect-[4/5] bg-gray-100 rounded-3xl overflow-hidden shadow-2xl">
+                        <!-- Placeholder for CEO Image -->
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1000" alt="代表者" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-8 -right-8 w-64 h-64 bg-marukanBlue/5 -z-10 rounded-full blur-3xl"></div>
+                </div>
             </div>
-            <a href="#" class="text-marukanBlue font-bold hover:underline">一覧を見る &rarr;</a>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <?php
-            $news_args = array(
-                'post_type' => 'post',
-                'posts_per_page' => 3,
-            );
-            $news_query = new WP_Query($news_args);
-
-            if ($news_query->have_posts()) :
-                while ($news_query->have_posts()) : $news_query->the_post();
-            ?>
-                <article class="group">
-                    <a href="<?php the_permalink(); ?>" class="block">
-                        <div class="overflow-hidden rounded-xl mb-4">
-                            <?php if (has_post_thumbnail()) : ?>
-                                <?php the_post_thumbnail('medium', ['class' => 'w-full h-48 object-cover group-hover:scale-105 transition duration-500']); ?>
-                            <?php else : ?>
-                                <div class="w-full h-48 bg-gray-200 group-hover:scale-105 transition duration-500"></div>
-                            <?php endif; ?>
-                        </div>
-                        <time class="text-sm text-gray-400"><?php echo get_the_date(); ?></time>
-                        <h3 class="font-bold mt-2 group-hover:text-marukanBlue transition"><?php the_title(); ?></h3>
-                    </a>
-                </article>
-            <?php
-                endwhile;
-                wp_reset_postdata();
-            else :
-            ?>
-                <!-- Fallback content if no posts -->
-                <p class="col-span-3 text-center text-gray-400">現在、お知らせはありません。</p>
-            <?php endif; ?>
+            <div class="w-full md:w-1/2">
+                <span class="text-marukanBlue font-bold tracking-widest text-sm mb-4 block">MESSAGE</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 leading-tight">
+                    <?php echo esc_html(get_theme_mod('marukan_original_message_title', '代表者メッセージ')); ?>
+                </h2>
+                <div class="text-gray-600 space-y-6 leading-relaxed text-lg">
+                    <?php echo nl2br(esc_html(get_theme_mod('marukan_original_message_content', '卸売業からスタートし、現在は自社工場での製造も手掛けています。食のニーズが変化する中、私たちは常に新しい価値を提供し続けます。'))); ?>
+                </div>
+                <div class="mt-12">
+                    <p class="font-bold text-xl">代表取締役社長　西谷 賢亮</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Bento Box Layout Section -->
-<section id="about" class="py-20 bg-gray-50">
+<!-- MVV Section -->
+<section id="mvv" class="py-24 bg-gray-50">
     <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold mb-2">神戸まるかんについて</h2>
-            <p class="text-gray-500 uppercase tracking-widest">About Us</p>
+        <div class="text-center mb-20">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">企業理念・MVV</h2>
+            <p class="text-gray-400 tracking-widest uppercase text-sm">Mission / Vision / Value</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-none md:grid-rows-2 gap-6">
-            <!-- Message (Large) -->
-            <div class="md:col-span-2 md:row-span-1 bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                <div>
-                    <span class="text-marukanBlue font-bold text-sm uppercase">Message</span>
-                    <h3 class="text-2xl font-bold mt-4 mb-4"><?php echo esc_html(get_theme_mod('marukan_original_message_title', '代表者メッセージ')); ?></h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        <?php echo nl2br(esc_html(get_theme_mod('marukan_original_message_content', '卸売業からスタートし、現在は自社工場での製造も手掛けています。食のニーズが変化する中、私たちは常に新しい価値を提供し続けます。'))); ?>
-                    </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Mission -->
+            <div class="bg-white p-12 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500 group border border-gray-100">
+                <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-marukanBlue transition-colors duration-500">
+                    <svg class="w-10 h-10 text-marukanBlue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                    </svg>
                 </div>
-                <a href="#" class="text-marukanBlue font-bold mt-6 inline-flex items-center">
-                    詳しく見る <span class="ml-2">→</span>
-                </a>
-            </div>
-
-            <!-- Philosophy (Square) -->
-            <div class="md:col-span-1 md:row-span-1 bg-marukanBlue text-white p-8 rounded-3xl hover:shadow-2xl hover:shadow-blue-900/30 hover:-translate-y-1 transition-all duration-300 border border-marukanBlue">
-                <span class="text-blue-200 font-bold text-sm uppercase">Philosophy</span>
-                <h3 class="text-xl font-bold mt-4 mb-4">企業理念</h3>
-                <p class="text-sm leading-relaxed">
-                    <?php echo esc_html(get_theme_mod('marukan_original_philosophy', '私たちは食を通じて、美味しさと幸せを創造し、人々の明るい食生活に貢献します。')); ?>
+                <h3 class="text-2xl font-bold mb-6">Mission (使命)</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    <?php echo nl2br(esc_html(get_theme_mod('marukan_original_mission', "美味しさと戦略をセットで届ける。\n顧客の繁盛を創る"))); ?>
                 </p>
             </div>
 
-            <!-- History (Tall) -->
-            <div class="md:col-span-1 md:row-span-2 bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                <span class="text-marukanBlue font-bold text-sm uppercase">History</span>
-                <h3 class="text-xl font-bold mt-4 mb-6">歩み</h3>
-                <div class="space-y-4 flex-grow">
-                    <div class="border-l-2 border-marukanBlue/20 pl-4 py-1">
-                        <p class="text-xs text-gray-400">1977</p>
-                        <p class="text-sm font-bold">マルカン商事設立</p>
-                    </div>
-                    <div class="border-l-2 border-marukanBlue/20 pl-4 py-1">
-                        <p class="text-xs text-gray-400">1992</p>
-                        <p class="text-sm font-bold">中国に食品工場を設立</p>
-                    </div>
-                    <div class="border-l-2 border-marukanBlue/20 pl-4 py-1">
-                        <p class="text-xs text-gray-400">2022</p>
-                        <p class="text-sm font-bold">ISO22000認証取得</p>
-                    </div>
+            <!-- Vision -->
+            <div class="bg-white p-12 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500 group border border-gray-100">
+                <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-marukanBlue transition-colors duration-500">
+                    <svg class="w-10 h-10 text-marukanBlue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                    </svg>
                 </div>
-                <a href="#" class="text-marukanBlue font-bold mt-6 inline-flex items-center">
-                    沿革を見る <span class="ml-2">→</span>
-                </a>
+                <h3 class="text-2xl font-bold mb-6">Vision (将来像)</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    <?php echo nl2br(esc_html(get_theme_mod('marukan_original_vision', "「困ったら神戸まるかん」と一番に選ばれる、食のトータルソリューション・カンパニー。"))); ?>
+                </p>
             </div>
 
-            <!-- Products (Wide) -->
-            <div id="products" class="md:col-span-2 md:row-span-1 bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between overflow-hidden relative">
-                <div class="z-10">
-                    <span class="text-marukanBlue font-bold text-sm uppercase">Products</span>
-                    <h3 class="text-2xl font-bold mt-4 mb-4">商品案内</h3>
-                    <p class="text-gray-600 mb-6">水産物からスイーツ、ソースまで多彩なラインナップ。</p>
-                    <div class="flex flex-wrap gap-2">
-                        <?php
-                        $terms = get_terms(array(
-                            'taxonomy' => 'product_category',
-                            'hide_empty' => false,
-                        ));
-                        if (!empty($terms) && !is_wp_error($terms)) {
-                            foreach ($terms as $term) {
-                                echo '<a href="' . esc_url(get_term_link($term)) . '" class="px-3 py-1 bg-blue-50 text-marukanBlue text-xs rounded-full hover:bg-marukanBlue hover:text-white transition">' . esc_html($term->name) . '</a>';
-                            }
-                        } else {
-                            // Fallback if no categories exist yet
-                            echo '<span class="px-3 py-1 bg-blue-50 text-marukanBlue text-xs rounded-full">Seafood</span>';
-                            echo '<span class="px-3 py-1 bg-blue-50 text-marukanBlue text-xs rounded-full">Sweets</span>';
-                            echo '<span class="px-3 py-1 bg-blue-50 text-marukanBlue text-xs rounded-full">Source</span>';
-                        }
-                        ?>
-                    </div>
+            <!-- Value -->
+            <div class="bg-white p-12 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500 group border border-gray-100">
+                <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-marukanBlue transition-colors duration-500">
+                    <svg class="w-10 h-10 text-marukanBlue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
                 </div>
-                <div class="absolute right-0 top-0 h-full w-1/3 bg-gray-100 -rotate-12 translate-x-8 translate-y-8 rounded-3xl"></div>
-            </div>
-
-            <!-- Recruit (Square) -->
-            <div id="recruit" class="md:col-span-1 md:row-span-1 bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                <div>
-                    <span class="text-marukanBlue font-bold text-sm uppercase">Recruit</span>
-                    <h3 class="text-xl font-bold mt-4 mb-2">採用情報</h3>
-                    <p class="text-sm text-gray-500">未来の仲間を募集しています。</p>
-                </div>
-                <a href="#" class="w-12 h-12 bg-gray-900 text-white rounded-full flex items-center justify-center self-end hover:bg-marukanBlue transition">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                </a>
+                <h3 class="text-2xl font-bold mb-6">Value (価値観)</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    <?php echo nl2br(esc_html(get_theme_mod('marukan_original_value', "納品をゴールとせず、顧客の売上アップをゴールとする達人集団"))); ?>
+                </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Members Section -->
-<section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold mb-2">働く仲間</h2>
-            <p class="text-gray-500 uppercase tracking-widest">Members</p>
+<!-- History Section -->
+<section id="history" class="py-24 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <div class="text-center mb-20">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">神戸まるかんの歩み</h2>
+            <p class="text-gray-400 tracking-widest uppercase text-sm">History</p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="flex flex-col md:flex-row gap-8 items-center bg-gray-50 p-8 rounded-3xl hover:bg-white hover:shadow-xl transition duration-300">
-                <div class="w-32 h-32 rounded-full bg-gray-200 flex-shrink-0"></div>
-                <div>
-                    <p class="text-marukanBlue font-bold text-sm mb-1">営業本部 / 2021年入社</p>
-                    <h4 class="text-xl font-bold mb-4">ルートセールス・新規開拓</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                        お客様が困ったとき、最初に相談したくなる営業を目指しています。
-                    </p>
-                    <a href="#" class="text-marukanBlue font-bold text-sm underline">詳しく見る</a>
-                </div>
-            </div>
-            <div class="flex flex-col md:flex-row gap-8 items-center bg-gray-50 p-8 rounded-3xl hover:bg-white hover:shadow-xl transition duration-300">
-                <div class="w-32 h-32 rounded-full bg-gray-200 flex-shrink-0"></div>
-                <div>
-                    <p class="text-marukanBlue font-bold text-sm mb-1">商品部・生産課 / 2015年入社</p>
-                    <h4 class="text-xl font-bold mb-4">生産管理・マネジメント</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                        品質向上と効率改善のプロセスに面白さを感じています。
-                    </p>
-                    <a href="#" class="text-marukanBlue font-bold text-sm underline">詳しく見る</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Company Profile -->
-<section class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto bg-white p-12 rounded-3xl shadow-sm border border-gray-100">
-            <h2 class="text-3xl font-bold mb-12 text-center">会社概要</h2>
-            <dl class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-y-6 text-sm md:text-base border-t border-gray-100 pt-8">
-                <dt class="font-bold text-gray-500">会社名</dt>
-                <dd><?php echo esc_html(get_theme_mod('marukan_original_company_name', '株式会社神戸まるかん')); ?></dd>
+        <div class="relative">
+            <!-- Vertical Line -->
+            <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gray-200 -translate-x-1/2"></div>
 
-                <dt class="font-bold text-gray-500">創立</dt>
-                <dd>1977年4月</dd>
+            <div class="space-y-12">
+                <?php
+                $history = [
+                    ['year' => '1977年', 'event' => '神戸市中央区に前身となるマルカン商事株式会社設立'],
+                    ['year' => '1987年', 'event' => '本社を神戸市兵庫区に移転'],
+                    ['year' => '1992年', 'event' => '中国山東省煙台市に煙台魯星有限公司設立'],
+                    ['year' => '2003年', 'event' => '中国山東省煙台市に煙台緑美有限公司設立'],
+                    ['year' => '2005年', 'event' => '本社機能を東灘区に移転、本社敷地内に工場を設立'],
+                    ['year' => '2009年', 'event' => '中国の加工事業を煙台緑美食品有限公司に統合'],
+                    ['year' => '2017年', 'event' => '株式会社神明グループに参画'],
+                    ['year' => '2018年', 'event' => '東京営業所開設'],
+                    ['year' => '2022年', 'event' => '神戸工場にてISO22000認証取得'],
+                ];
 
-                <dt class="font-bold text-gray-500">代表者</dt>
-                <dd>代表取締役社長：西谷 賢亮</dd>
+                foreach ($history as $index => $item) :
+                    $is_even = $index % 2 === 1;
+                ?>
+                    <div class="relative flex items-center <?php echo $is_even ? 'md:flex-row-reverse' : ''; ?>">
+                        <!-- Dot -->
+                        <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-marukanBlue rounded-full -translate-x-1/2 z-10 border-4 border-white"></div>
 
-                <dt class="font-bold text-gray-500">資本金</dt>
-                <dd>4,000万円</dd>
-
-                <dt class="font-bold text-gray-500">事業内容</dt>
-                <dd>水産物を中心とした、食品の製造および販売</dd>
-
-                <dt class="font-bold text-gray-500">所在地</dt>
-                <dd>
-                    <?php echo nl2br(esc_html(get_theme_mod('marukan_original_address', "〒658-0023 兵庫県神戸市東灘区深江浜町5番地の1"))); ?><br>
-                    <a href="https://goo.gl/maps/FV8pMspQeqDC4dW47" target="_blank" class="text-marukanBlue underline mt-2 inline-block">Googleマップで見る</a>
-                </dd>
-            </dl>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-            <div class="grid grid-cols-1 md:grid-cols-2">
-                <div class="bg-marukanBlue p-12 text-white flex flex-col justify-between">
-                    <div>
-                        <h2 class="text-3xl font-bold mb-6">お問い合わせ</h2>
-                        <p class="text-blue-100 mb-8 leading-relaxed">
-                            商品に関するご質問や、採用についてのご相談など、お気軽にお問い合わせください。
-                        </p>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <svg class="w-6 h-6 mr-4 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                            <span class="font-bold text-xl">078-431-6600</span>
-                        </div>
-                        <p class="text-sm text-blue-200">受付時間：平日 9:00 〜 17:00</p>
-                    </div>
-                </div>
-                <div class="p-12">
-                    <div class="cf7-container">
-                        <?php
-                        $cf7_id = get_theme_mod('marukan_original_cf7_id');
-                        // If Contact Form 7 is active, display the form.
-                        // Otherwise, display a helpful message.
-                        if (shortcode_exists('contact-form-7')) {
-                            if (!empty($cf7_id)) {
-                                if (strpos($cf7_id, '[') !== false) {
-                                    echo do_shortcode($cf7_id);
-                                } else {
-                                    echo do_shortcode('[contact-form-7 id="' . esc_attr($cf7_id) . '"]');
-                                }
-                            } else {
-                                echo '<p class="text-gray-500 text-center py-8">管理画面の「外観 > カスタマイズ > Analytics & Integration」からContact Form 7のIDを設定してください。</p>';
-                            }
-                        } else {
-                            ?>
-                            <div class="bg-gray-50 border border-gray-200 p-8 rounded-xl text-center">
-                                <p class="text-gray-600 mb-4">
-                                    お問い合わせフォームを表示するには「Contact Form 7」プラグインを有効にしてください。
-                                </p>
-                                <p class="text-xs text-gray-400 leading-relaxed">
-                                    【ベストプラクティス】<br>
-                                    プラグイン導入後、以下の項目（ハニーポットを含む）を設定することを推奨します：<br>
-                                    [text* your-name] [email* your-email] [textarea* your-message] [honeypot spam-protection]
-                                </p>
+                        <div class="w-full md:w-1/2 pl-8 md:pl-0 <?php echo $is_even ? 'md:pl-12' : 'md:pr-12 text-right'; ?>">
+                            <div class="bg-gray-50 p-6 rounded-2xl hover:bg-blue-50 transition-colors duration-300">
+                                <span class="text-marukanBlue font-bold block mb-2"><?php echo $item['year']; ?></span>
+                                <p class="text-gray-700 font-medium"><?php echo $item['event']; ?></p>
                             </div>
-                            <?php
-                        }
-                        ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Products & Cases Section -->
+<section id="products-cases" class="py-24 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Products Card -->
+            <a href="#" class="group relative aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden rounded-[2.5rem] shadow-lg">
+                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-10 left-10 text-white">
+                    <span class="text-blue-400 font-bold tracking-widest text-xs uppercase mb-2 block">Products</span>
+                    <h3 class="text-3xl font-bold">商品案内</h3>
+                    <p class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">水産物からスイーツまで多彩なラインナップ</p>
+                </div>
+            </a>
+
+            <!-- Case Studies Card -->
+            <a href="#" class="group relative aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden rounded-[2.5rem] shadow-lg">
+                <img src="https://images.unsplash.com/photo-1543157145-f78c636d023d?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-marukanBlue/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-10 left-10 text-white">
+                    <span class="text-blue-300 font-bold tracking-widest text-xs uppercase mb-2 block">Case Studies</span>
+                    <h3 class="text-3xl font-bold">導入事例</h3>
+                    <p class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">お客様と共に歩む、私たちの実績</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Navigation Buttons Grid -->
+<section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <a href="#" class="group bg-gray-50 p-10 rounded-3xl border border-gray-100 hover:bg-marukanBlue transition-all duration-500">
+                <div class="flex flex-col h-full justify-between">
+                    <h3 class="text-xl font-bold group-hover:text-white transition-colors">働く仲間</h3>
+                    <div class="flex justify-end mt-8">
+                        <div class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all">
+                            <svg class="w-6 h-6 text-marukanBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </div>
                     </div>
                 </div>
+            </a>
+
+            <a href="#" class="group bg-gray-50 p-10 rounded-3xl border border-gray-100 hover:bg-marukanBlue transition-all duration-500">
+                <div class="flex flex-col h-full justify-between">
+                    <h3 class="text-xl font-bold group-hover:text-white transition-colors">採用情報</h3>
+                    <div class="flex justify-end mt-8">
+                        <div class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all">
+                            <svg class="w-6 h-6 text-marukanBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="group bg-gray-50 p-10 rounded-3xl border border-gray-100 hover:bg-marukanBlue transition-all duration-500">
+                <div class="flex flex-col h-full justify-between">
+                    <h3 class="text-xl font-bold group-hover:text-white transition-colors">会社概要</h3>
+                    <div class="flex justify-end mt-8">
+                        <div class="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all">
+                            <svg class="w-6 h-6 text-marukanBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#contact" class="group bg-marukanBlue p-10 rounded-3xl border border-marukanBlue hover:bg-blue-800 transition-all duration-500">
+                <div class="flex flex-col h-full justify-between">
+                    <h3 class="text-xl font-bold text-white">お問い合わせ</h3>
+                    <div class="flex justify-end mt-8">
+                        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                            <svg class="w-6 h-6 text-marukanBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section (Anchored) -->
+<section id="contact" class="py-24 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">お気軽にご相談ください</h2>
+            <p class="text-gray-600 mb-12">
+                食のトータルソリューション・カンパニーとして、<br class="hidden md:block">
+                お客様の課題解決に最適なご提案をさせていただきます。
+            </p>
+            <div class="cf7-container bg-white p-12 rounded-[2.5rem] shadow-xl text-left border border-gray-100">
+                <?php
+                $cf7_id = get_theme_mod('marukan_original_cf7_id');
+                if (shortcode_exists('contact-form-7')) {
+                    if (!empty($cf7_id)) {
+                        echo do_shortcode($cf7_id);
+                    } else {
+                        echo '<p class="text-gray-400 text-center">Contact Form 7 ID is not set.</p>';
+                    }
+                } else {
+                    echo '<p class="text-gray-400 text-center">Contact Form 7 plugin is not active.</p>';
+                }
+                ?>
             </div>
         </div>
     </div>

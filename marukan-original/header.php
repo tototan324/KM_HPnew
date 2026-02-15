@@ -31,7 +31,7 @@
         <div class="container mx-auto px-4 h-20 flex items-center justify-between">
             <div class="logo">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="text-2xl font-bold text-marukanBlue tracking-tighter">
-                    神戸まるかん
+                    株式会社神戸まるかん
                 </a>
             </div>
 
@@ -47,10 +47,10 @@
                     ));
                 } else {
                     ?>
-                    <a href="#news" class="text-sm font-bold hover:text-marukanBlue transition">お知らせ</a>
-                    <a href="#about" class="text-sm font-bold hover:text-marukanBlue transition">私たちについて</a>
-                    <a href="#products" class="text-sm font-bold hover:text-marukanBlue transition">商品案内</a>
-                    <a href="#recruit" class="text-sm font-bold hover:text-marukanBlue transition">採用情報</a>
+                    <a href="#message" class="text-sm font-bold hover:text-marukanBlue transition">メッセージ</a>
+                    <a href="#mvv" class="text-sm font-bold hover:text-marukanBlue transition">理念</a>
+                    <a href="#history" class="text-sm font-bold hover:text-marukanBlue transition">歩み</a>
+                    <a href="#products-cases" class="text-sm font-bold hover:text-marukanBlue transition">商品・事例</a>
                     <a href="#contact" class="bg-marukanBlue text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-800 transition">お問い合わせ</a>
                     <?php
                 }
@@ -79,10 +79,10 @@
                     ));
                 } else {
                     ?>
-                    <a href="#news" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">お知らせ</a>
-                    <a href="#about" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">私たちについて</a>
-                    <a href="#products" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">商品案内</a>
-                    <a href="#recruit" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">採用情報</a>
+                    <a href="#message" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">代表メッセージ</a>
+                    <a href="#mvv" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">企業理念</a>
+                    <a href="#history" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">沿革</a>
+                    <a href="#products-cases" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">商品・事例</a>
                     <a href="#contact" class="bg-marukanBlue text-white px-6 py-4 rounded-xl text-center font-bold mobile-link">お問い合わせ</a>
                     <?php
                 }

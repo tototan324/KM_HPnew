@@ -4,9 +4,9 @@
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             <div>
-                <div class="text-2xl font-bold text-marukanBlue mb-4">神戸まるかん</div>
+                <div class="text-2xl font-bold text-marukanBlue mb-4">株式会社神戸まるかん</div>
                 <p class="text-sm text-gray-600 leading-relaxed">
-                    <?php echo nl2br(esc_html(get_theme_mod('marukan_original_philosophy', "私たちは食を通じて、美味しさと幸せを創造し、\n人々の明るい食生活に貢献します。"))); ?>
+                    <?php echo nl2br(esc_html(get_theme_mod('marukan_original_mission', "美味しさと戦略をセットで届ける。\n顧客の繁盛を創る"))); ?>
                 </p>
             </div>
             <div>
