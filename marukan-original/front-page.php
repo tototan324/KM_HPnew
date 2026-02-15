@@ -263,48 +263,31 @@
     </div>
 </section>
 
-<!-- Members Section -->
-<section id="members" class="py-24 bg-white">
+<!-- Products & Cases Section -->
+<section id="products-cases" class="py-24 bg-gray-50">
     <div class="container mx-auto px-4">
-        <div class="text-center mb-20">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">働く仲間</h2>
-            <p class="text-gray-400 tracking-widest uppercase text-sm">Members</p>
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Case Studies Card -->
+            <a href="#" class="group relative aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden rounded-[2.5rem] shadow-lg">
+                <img src="https://images.unsplash.com/photo-1543157145-f78c636d023d?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-marukanBlue/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-10 left-10 text-white">
+                    <span class="text-blue-300 font-bold tracking-widest text-xs uppercase mb-2 block">Case Studies</span>
+                    <h3 class="text-3xl font-bold">導入事例</h3>
+                    <p class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">お客様と共に歩む、私たちの実績</p>
+                </div>
+            </a>
 
-        <div class="max-w-5xl mx-auto space-y-24">
-            <!-- Member 1 -->
-            <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-                <div class="w-full md:w-2/5">
-                    <div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl">
-                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" alt="社員紹介1" class="w-full h-full object-cover">
-                    </div>
+            <!-- Products Card -->
+            <a href="#" class="group relative aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden rounded-[2.5rem] shadow-lg">
+                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-10 left-10 text-white">
+                    <span class="text-blue-400 font-bold tracking-widest text-xs uppercase mb-2 block">Products</span>
+                    <h3 class="text-3xl font-bold">商品案内</h3>
+                    <p class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">水産物からスイーツまで多彩なラインナップ</p>
                 </div>
-                <div class="w-full md:w-3/5">
-                    <span class="inline-block bg-blue-50 text-marukanBlue text-xs font-bold px-4 py-1 rounded-full mb-6">営業本部 / 2018年入社</span>
-                    <h3 class="text-2xl md:text-3xl font-bold mb-6">「食のプロとして、お客様の期待を超える提案を」</h3>
-                    <p class="text-gray-600 leading-relaxed mb-8">
-                        お客様が抱える課題は千差万別です。単に商品を売るのではなく、その先の消費者が何を求めているかを常に考え、最適なソリューションを提案することにやりがいを感じています。
-                    </p>
-                    <p class="font-bold text-lg">佐藤 結衣</p>
-                </div>
-            </div>
-
-            <!-- Member 2 -->
-            <div class="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-20">
-                <div class="w-full md:w-2/5">
-                    <div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="社員紹介2" class="w-full h-full object-cover">
-                    </div>
-                </div>
-                <div class="w-full md:w-3/5">
-                    <span class="inline-block bg-blue-50 text-marukanBlue text-xs font-bold px-4 py-1 rounded-full mb-6">製造部 工場長 / 2010年入社</span>
-                    <h3 class="text-2xl md:text-3xl font-bold mb-6">「安全・安心、そして美味しさへの責任」</h3>
-                    <p class="text-gray-600 leading-relaxed mb-8">
-                        ISO22000の認証取得など、徹底した品質管理のもとで製造を行っています。最新の設備と職人の知恵を融合させ、神戸から全国へ最高の品質をお届けしています。
-                    </p>
-                    <p class="font-bold text-lg">田中 健二</p>
-                </div>
-            </div>
+            </a>
         </div>
     </div>
 </section>
@@ -355,31 +338,48 @@
     </div>
 </section>
 
-<!-- Products & Cases Section -->
-<section id="products-cases" class="py-24 bg-gray-50">
+<!-- Members Section -->
+<section id="members" class="py-24 bg-white">
     <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Case Studies Card -->
-            <a href="#" class="group relative aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden rounded-[2.5rem] shadow-lg">
-                <img src="https://images.unsplash.com/photo-1543157145-f78c636d023d?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-marukanBlue/80 via-black/20 to-transparent"></div>
-                <div class="absolute bottom-10 left-10 text-white">
-                    <span class="text-blue-300 font-bold tracking-widest text-xs uppercase mb-2 block">Case Studies</span>
-                    <h3 class="text-3xl font-bold">導入事例</h3>
-                    <p class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">お客様と共に歩む、私たちの実績</p>
-                </div>
-            </a>
+        <div class="text-center mb-20">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">働く仲間</h2>
+            <p class="text-gray-400 tracking-widest uppercase text-sm">Members</p>
+        </div>
 
-            <!-- Products Card -->
-            <a href="#" class="group relative aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden rounded-[2.5rem] shadow-lg">
-                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                <div class="absolute bottom-10 left-10 text-white">
-                    <span class="text-blue-400 font-bold tracking-widest text-xs uppercase mb-2 block">Products</span>
-                    <h3 class="text-3xl font-bold">商品案内</h3>
-                    <p class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">水産物からスイーツまで多彩なラインナップ</p>
+        <div class="max-w-5xl mx-auto space-y-24">
+            <!-- Member 1 -->
+            <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+                <div class="w-full md:w-2/5">
+                    <div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" alt="社員紹介1" class="w-full h-full object-cover">
+                    </div>
                 </div>
-            </a>
+                <div class="w-full md:w-3/5">
+                    <span class="inline-block bg-blue-50 text-marukanBlue text-xs font-bold px-4 py-1 rounded-full mb-6">営業本部 / 2018年入社</span>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6">「食のプロとして、お客様の期待を超える提案を」</h3>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        お客様が抱える課題は千差万別です。単に商品を売るのではなく、その先の消費者が何を求めているかを常に考え、最適なソリューションを提案することにやりがいを感じています。
+                    </p>
+                    <p class="font-bold text-lg">佐藤 結衣</p>
+                </div>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-20">
+                <div class="w-full md:w-2/5">
+                    <div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="社員紹介2" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="w-full md:w-3/5">
+                    <span class="inline-block bg-blue-50 text-marukanBlue text-xs font-bold px-4 py-1 rounded-full mb-6">製造部 工場長 / 2010年入社</span>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6">「安全・安心、そして美味しさへの責任」</h3>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        ISO22000の認証取得など、徹底した品質管理のもとで製造を行っています。最新の設備と職人の知恵を融合させ、神戸から全国へ最高の品質をお届けしています。
+                    </p>
+                    <p class="font-bold text-lg">田中 健二</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
