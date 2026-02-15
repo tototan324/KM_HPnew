@@ -516,19 +516,13 @@
                 食のトータルソリューション・カンパニーとして、<br class="hidden md:block">
                 お客様の課題解決に最適なご提案をさせていただきます。
             </p>
-            <div class="cf7-container bg-white p-12 rounded-[2.5rem] shadow-xl text-left border border-gray-100">
-                <?php
-                $cf7_id = get_theme_mod('marukan_original_cf7_id');
-                if (shortcode_exists('contact-form-7')) {
-                    if (!empty($cf7_id)) {
-                        echo do_shortcode($cf7_id);
-                    } else {
-                        echo '<p class="text-gray-400 text-center">Contact Form 7 ID is not set.</p>';
-                    }
-                } else {
-                    echo '<p class="text-gray-400 text-center">Contact Form 7 plugin is not active.</p>';
-                }
-                ?>
+            <div class="flex justify-center">
+                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="group relative inline-flex items-center gap-4 bg-marukanBlue text-white px-16 py-8 rounded-full text-2xl font-bold transition-all duration-500 hover:bg-blue-800 hover:-translate-y-2 hover:shadow-[0_20px_50px_-10px_rgba(0,64,152,0.5)]">
+                    お問い合わせフォーム
+                    <svg class="w-8 h-8 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
