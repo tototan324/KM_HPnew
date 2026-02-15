@@ -359,17 +359,6 @@
 <section id="products-cases" class="py-24 bg-gray-50">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Products Card -->
-            <a href="#" class="group relative aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden rounded-[2.5rem] shadow-lg">
-                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                <div class="absolute bottom-10 left-10 text-white">
-                    <span class="text-blue-400 font-bold tracking-widest text-xs uppercase mb-2 block">Products</span>
-                    <h3 class="text-3xl font-bold">商品案内</h3>
-                    <p class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">水産物からスイーツまで多彩なラインナップ</p>
-                </div>
-            </a>
-
             <!-- Case Studies Card -->
             <a href="#" class="group relative aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden rounded-[2.5rem] shadow-lg">
                 <img src="https://images.unsplash.com/photo-1543157145-f78c636d023d?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
@@ -378,6 +367,17 @@
                     <span class="text-blue-300 font-bold tracking-widest text-xs uppercase mb-2 block">Case Studies</span>
                     <h3 class="text-3xl font-bold">導入事例</h3>
                     <p class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">お客様と共に歩む、私たちの実績</p>
+                </div>
+            </a>
+
+            <!-- Products Card -->
+            <a href="#" class="group relative aspect-[16/9] md:aspect-auto md:h-[400px] overflow-hidden rounded-[2.5rem] shadow-lg">
+                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=1000" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-10 left-10 text-white">
+                    <span class="text-blue-400 font-bold tracking-widest text-xs uppercase mb-2 block">Products</span>
+                    <h3 class="text-3xl font-bold">商品案内</h3>
+                    <p class="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">水産物からスイーツまで多彩なラインナップ</p>
                 </div>
             </a>
         </div>
