@@ -80,16 +80,26 @@ body {
     background-color: #004098;
     color: white;
     font-weight: 700;
-    padding: 1rem;
-    border-radius: 0.75rem;
+    padding: 1.25rem 2rem;
+    border-radius: 9999px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: none;
     margin-top: 1rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    text-align: center;
+    display: inline-block;
+    -webkit-appearance: none;
 }
 
 .wpcf7-form .wpcf7-submit:hover {
     background-color: #00337a;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 64, 152, 0.4);
+}
+
+.wpcf7-form .wpcf7-submit:active {
+    transform: translateY(-2px);
 }
 
 .wpcf7-not-valid-tip {
