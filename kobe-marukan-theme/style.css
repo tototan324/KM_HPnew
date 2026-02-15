@@ -1,0 +1,45 @@
+/*
+Theme Name: Kobe Marukan Theme
+Theme URI: https://www.marukan.jp/
+Author: Jules
+Description: Corporate site for Kobe Marukan.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: marukan
+*/
+
+/* WordPress Core accessibility/alignment classes */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.alignleft {
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Custom CSS */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
