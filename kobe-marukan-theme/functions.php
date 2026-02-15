@@ -104,11 +104,24 @@ function marukan_customize_register($wp_customize) {
         'section' => 'marukan_info',
     )));
 
-    // Section: Analytics
+    // Section: Analytics & Integration
     $wp_customize->add_section('marukan_analytics', array(
-        'title' => __('Analytics', 'marukan'),
+        'title' => __('Analytics & Integration', 'marukan'),
         'priority' => 100,
     ));
+
+    // Setting: Contact Form 7 ID
+    $wp_customize->add_setting('marukan_cf7_id', array(
+        'default' => '',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('marukan_cf7_id', array(
+        'label' => __('Contact Form 7 ID (or full shortcode)', 'marukan'),
+        'description' => __('Enter the numeric ID or the full shortcode [contact-form-7 id="..."]', 'marukan'),
+        'section' => 'marukan_analytics',
+        'type' => 'text',
+    ));
+
     $wp_customize->add_setting('ga_tracking_id', array(
         'default' => '',
         'sanitize_callback' => 'sanitize_text_field',
@@ -161,32 +174,56 @@ function marukan_register_post_types() {
 add_action('init', 'marukan_register_post_types');
 
 /**
- * Handle Contact Form Submission
+ * Plugin Recommendations and Integration
+ * Recommended Plugins:
+ * - Contact Form 7 (Best practice for flexible, free forms)
+ * - Honeypot for Contact Form 7 (Spam protection without CAPTCHA)
  */
-function marukan_handle_contact_form() {
-    if (isset($_POST['action']) && $_POST['action'] == 'contact_form') {
-        // Check nonce
-        if (!isset($_POST['contact_form_nonce_field']) || !wp_verify_nonce($_POST['contact_form_nonce_field'], 'contact_form_nonce')) {
-            wp_die('Security check failed');
+function marukan_plugin_notice() {
+    if (is_admin() && current_user_can('install_plugins')) {
+        if (!defined('WPCF7_VERSION')) {
+            echo '<div class="notice notice-info is-dismissible">
+                <p><strong>神戸まるかんテーマ:</strong> 問い合わせフォームを有効にするには「Contact Form 7」プラグインのインストールを推奨します。</p>
+            </div>';
         }
-
-        // Check honeypot
-        if (!empty($_POST['honeypot'])) {
-            wp_die('Spam detected');
+        if (!defined('WPCF7H_VERSION') && defined('WPCF7_VERSION')) {
+            echo '<div class="notice notice-info is-dismissible">
+                <p><strong>神戸まるかんテーマ:</strong> スパム対策（ハニーポット機能）を有効にするには「Honeypot for Contact Form 7」プラグインのインストールを推奨します。</p>
+            </div>';
         }
-
-        // Process form (send email, etc.)
-        $name = sanitize_text_field($_POST['your-name']);
-        $email = sanitize_email($_POST['your-email']);
-        $message = sanitize_textarea_field($_POST['your-message']);
-
-        // In a real scenario, use wp_mail()
-        // wp_mail(get_option('admin_email'), 'Contact Form Submission', "From: $name <$email>\n\n$message");
-
-        // Redirect back with success message
-        wp_redirect(home_url('/?contact-success=1#contact'));
-        exit;
     }
 }
-add_action('admin_post_contact_form', 'marukan_handle_contact_form');
-add_action('admin_post_nopriv_contact_form', 'marukan_handle_contact_form');
+add_action('admin_notices', 'marukan_plugin_notice');
+
+/**
+ * Custom Walkers for Tailwind CSS Navigation
+ */
+class Marukan_Tailwind_Walker extends Walker_Nav_Menu {
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $classes = empty($item->classes) ? array() : (array) $item->classes;
+        $is_contact = in_array('menu-contact', $classes) || strpos($item->url, '#contact') !== false;
+
+        $class_names = $is_contact
+            ? 'bg-marukanBlue text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-800 transition'
+            : 'text-sm font-bold hover:text-marukanBlue transition';
+
+        $output .= '<a href="' . esc_url($item->url) . '" class="' . esc_attr($class_names) . '">';
+        $output .= $item->title;
+        $output .= '</a>';
+    }
+}
+
+class Marukan_Tailwind_Mobile_Walker extends Walker_Nav_Menu {
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $classes = empty($item->classes) ? array() : (array) $item->classes;
+        $is_contact = in_array('menu-contact', $classes) || strpos($item->url, '#contact') !== false;
+
+        $class_names = $is_contact
+            ? 'bg-marukanBlue text-white px-6 py-4 rounded-xl text-center font-bold mobile-link'
+            : 'text-lg font-bold py-2 border-b border-gray-50 mobile-link';
+
+        $output .= '<a href="' . esc_url($item->url) . '" class="' . esc_attr($class_names) . '">';
+        $output .= $item->title;
+        $output .= '</a>';
+    }
+}

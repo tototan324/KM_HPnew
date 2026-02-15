@@ -37,11 +37,24 @@
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="#news" class="text-sm font-bold hover:text-marukanBlue transition">お知らせ</a>
-                <a href="#about" class="text-sm font-bold hover:text-marukanBlue transition">私たちについて</a>
-                <a href="#products" class="text-sm font-bold hover:text-marukanBlue transition">商品案内</a>
-                <a href="#recruit" class="text-sm font-bold hover:text-marukanBlue transition">採用情報</a>
-                <a href="#contact" class="bg-marukanBlue text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-800 transition">お問い合わせ</a>
+                <?php
+                if (has_nav_menu('primary')) {
+                    wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'container'      => false,
+                        'items_wrap'     => '%3$s',
+                        'walker'         => new Marukan_Tailwind_Walker(),
+                    ));
+                } else {
+                    ?>
+                    <a href="#news" class="text-sm font-bold hover:text-marukanBlue transition">お知らせ</a>
+                    <a href="#about" class="text-sm font-bold hover:text-marukanBlue transition">私たちについて</a>
+                    <a href="#products" class="text-sm font-bold hover:text-marukanBlue transition">商品案内</a>
+                    <a href="#recruit" class="text-sm font-bold hover:text-marukanBlue transition">採用情報</a>
+                    <a href="#contact" class="bg-marukanBlue text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-800 transition">お問い合わせ</a>
+                    <?php
+                }
+                ?>
             </nav>
 
             <!-- Mobile Menu Button -->
@@ -56,11 +69,24 @@
         <!-- Mobile Menu Container -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-xl overflow-hidden transition-all duration-300 ease-in-out">
             <nav class="flex flex-col p-6 space-y-4">
-                <a href="#news" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">お知らせ</a>
-                <a href="#about" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">私たちについて</a>
-                <a href="#products" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">商品案内</a>
-                <a href="#recruit" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">採用情報</a>
-                <a href="#contact" class="bg-marukanBlue text-white px-6 py-4 rounded-xl text-center font-bold mobile-link">お問い合わせ</a>
+                <?php
+                if (has_nav_menu('primary')) {
+                    wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'container'      => false,
+                        'items_wrap'     => '%3$s',
+                        'walker'         => new Marukan_Tailwind_Mobile_Walker(),
+                    ));
+                } else {
+                    ?>
+                    <a href="#news" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">お知らせ</a>
+                    <a href="#about" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">私たちについて</a>
+                    <a href="#products" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">商品案内</a>
+                    <a href="#recruit" class="text-lg font-bold py-2 border-b border-gray-50 mobile-link">採用情報</a>
+                    <a href="#contact" class="bg-marukanBlue text-white px-6 py-4 rounded-xl text-center font-bold mobile-link">お問い合わせ</a>
+                    <?php
+                }
+                ?>
             </nav>
         </div>
 

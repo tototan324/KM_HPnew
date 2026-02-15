@@ -43,3 +43,64 @@ html {
 body {
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
+
+/* Contact Form 7 Custom Styling */
+.wpcf7-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.wpcf7-form label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #374151; /* gray-700 */
+    margin-bottom: 0.25rem;
+}
+
+.wpcf7-form .wpcf7-text,
+.wpcf7-form .wpcf7-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb; /* gray-200 */
+    outline: none;
+    transition: all 0.2s;
+}
+
+.wpcf7-form .wpcf7-text:focus,
+.wpcf7-form .wpcf7-textarea:focus {
+    border-color: #004098;
+    box-shadow: 0 0 0 4px rgba(0, 64, 152, 0.1);
+}
+
+.wpcf7-form .wpcf7-submit {
+    width: 100%;
+    background-color: #004098;
+    color: white;
+    font-weight: 700;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: none;
+    margin-top: 1rem;
+}
+
+.wpcf7-form .wpcf7-submit:hover {
+    background-color: #00337a;
+}
+
+.wpcf7-not-valid-tip {
+    color: #ef4444; /* red-500 */
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.wpcf7-response-output {
+    margin: 2rem 0 0 !important;
+    padding: 1rem !important;
+    border-radius: 0.75rem !important;
+    font-size: 0.875rem !important;
+}

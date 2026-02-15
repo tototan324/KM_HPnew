@@ -309,38 +309,37 @@
                     </div>
                 </div>
                 <div class="p-12">
-                    <?php if (isset($_GET['contact-success'])) : ?>
-                        <div class="bg-green-50 border border-green-200 text-green-700 p-6 rounded-xl mb-8">
-                            お問い合わせありがとうございます。内容を確認次第、担当者よりご連絡させていただきます。
-                        </div>
-                    <?php endif; ?>
-                    <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" class="space-y-4">
-                        <input type="hidden" name="action" value="contact_form">
-                        <?php wp_nonce_field('contact_form_nonce', 'contact_form_nonce_field'); ?>
-
-                        <!-- Honeypot field -->
-                        <div class="hidden">
-                            <input type="text" name="honeypot" value="">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1">お名前 <span class="text-red-500 text-xs">必須</span></label>
-                            <input type="text" name="your-name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-marukanBlue focus:ring-2 focus:ring-marukanBlue/20 outline-none transition">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1">メールアドレス <span class="text-red-500 text-xs">必須</span></label>
-                            <input type="email" name="your-email" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-marukanBlue focus:ring-2 focus:ring-marukanBlue/20 outline-none transition">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1">お問い合わせ内容 <span class="text-red-500 text-xs">必須</span></label>
-                            <textarea name="your-message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-marukanBlue focus:ring-2 focus:ring-marukanBlue/20 outline-none transition"></textarea>
-                        </div>
-                        <div class="pt-4">
-                            <button type="submit" class="w-full bg-marukanBlue text-white font-bold py-4 rounded-xl hover:bg-blue-800 transition shadow-lg shadow-blue-900/20">
-                                送信する
-                            </button>
-                        </div>
-                    </form>
+                    <div class="cf7-container">
+                        <?php
+                        $cf7_id = get_theme_mod('marukan_cf7_id');
+                        // If Contact Form 7 is active, display the form.
+                        // Otherwise, display a helpful message.
+                        if (shortcode_exists('contact-form-7')) {
+                            if (!empty($cf7_id)) {
+                                if (strpos($cf7_id, '[') !== false) {
+                                    echo do_shortcode($cf7_id);
+                                } else {
+                                    echo do_shortcode('[contact-form-7 id="' . esc_attr($cf7_id) . '"]');
+                                }
+                            } else {
+                                echo '<p class="text-gray-500 text-center py-8">管理画面の「外観 > カスタマイズ > Analytics & Integration」からContact Form 7のIDを設定してください。</p>';
+                            }
+                        } else {
+                            ?>
+                            <div class="bg-gray-50 border border-gray-200 p-8 rounded-xl text-center">
+                                <p class="text-gray-600 mb-4">
+                                    お問い合わせフォームを表示するには「Contact Form 7」プラグインを有効にしてください。
+                                </p>
+                                <p class="text-xs text-gray-400 leading-relaxed">
+                                    【ベストプラクティス】<br>
+                                    プラグイン導入後、以下の項目（ハニーポットを含む）を設定することを推奨します：<br>
+                                    [text* your-name] [email* your-email] [textarea* your-message] [honeypot spam-protection]
+                                </p>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
