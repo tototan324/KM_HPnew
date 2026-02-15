@@ -19,7 +19,7 @@
             theme: {
                 extend: {
                     colors: {
-                        marukanBlue: '<?php echo esc_attr(get_theme_mod('marukan_primary_color', '#004098')); ?>',
+                        marukanBlue: '<?php echo esc_attr(get_theme_mod('marukan_original_primary_color', '#004098')); ?>',
                     }
                 }
             }
@@ -43,7 +43,7 @@
                         'theme_location' => 'primary',
                         'container'      => false,
                         'items_wrap'     => '%3$s',
-                        'walker'         => new Marukan_Tailwind_Walker(),
+                        'walker'         => new Marukan_Original_Tailwind_Walker(),
                     ));
                 } else {
                     ?>
@@ -75,7 +75,7 @@
                         'theme_location' => 'primary',
                         'container'      => false,
                         'items_wrap'     => '%3$s',
-                        'walker'         => new Marukan_Tailwind_Mobile_Walker(),
+                        'walker'         => new Marukan_Original_Tailwind_Mobile_Walker(),
                     ));
                 } else {
                     ?>

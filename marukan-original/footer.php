@@ -6,13 +6,13 @@
             <div>
                 <div class="text-2xl font-bold text-marukanBlue mb-4">神戸まるかん</div>
                 <p class="text-sm text-gray-600 leading-relaxed">
-                    <?php echo nl2br(esc_html(get_theme_mod('marukan_philosophy', "私たちは食を通じて、美味しさと幸せを創造し、\n人々の明るい食生活に貢献します。"))); ?>
+                    <?php echo nl2br(esc_html(get_theme_mod('marukan_original_philosophy', "私たちは食を通じて、美味しさと幸せを創造し、\n人々の明るい食生活に貢献します。"))); ?>
                 </p>
             </div>
             <div>
                 <h4 class="font-bold mb-4">所在地</h4>
                 <p class="text-sm text-gray-600 mb-2">
-                    <?php echo nl2br(esc_html(get_theme_mod('marukan_address', "神戸本社\n〒658-0023\n兵庫県神戸市東灘区深江浜町5番地の1"))); ?>
+                    <?php echo nl2br(esc_html(get_theme_mod('marukan_original_address', "神戸本社\n〒658-0023\n兵庫県神戸市東灘区深江浜町5番地の1"))); ?>
                 </p>
                 <p class="text-sm text-gray-600">
                     TEL: 078-431-6600

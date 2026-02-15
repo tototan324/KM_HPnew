@@ -138,9 +138,9 @@
             <div class="md:col-span-2 md:row-span-1 bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-2xl hover:shadow-blue-900/10 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                 <div>
                     <span class="text-marukanBlue font-bold text-sm uppercase">Message</span>
-                    <h3 class="text-2xl font-bold mt-4 mb-4"><?php echo esc_html(get_theme_mod('marukan_message_title', '代表者メッセージ')); ?></h3>
+                    <h3 class="text-2xl font-bold mt-4 mb-4"><?php echo esc_html(get_theme_mod('marukan_original_message_title', '代表者メッセージ')); ?></h3>
                     <p class="text-gray-600 leading-relaxed">
-                        <?php echo nl2br(esc_html(get_theme_mod('marukan_message_content', '卸売業からスタートし、現在は自社工場での製造も手掛けています。食のニーズが変化する中、私たちは常に新しい価値を提供し続けます。'))); ?>
+                        <?php echo nl2br(esc_html(get_theme_mod('marukan_original_message_content', '卸売業からスタートし、現在は自社工場での製造も手掛けています。食のニーズが変化する中、私たちは常に新しい価値を提供し続けます。'))); ?>
                     </p>
                 </div>
                 <a href="#" class="text-marukanBlue font-bold mt-6 inline-flex items-center">
@@ -153,7 +153,7 @@
                 <span class="text-blue-200 font-bold text-sm uppercase">Philosophy</span>
                 <h3 class="text-xl font-bold mt-4 mb-4">企業理念</h3>
                 <p class="text-sm leading-relaxed">
-                    <?php echo esc_html(get_theme_mod('marukan_philosophy', '私たちは食を通じて、美味しさと幸せを創造し、人々の明るい食生活に貢献します。')); ?>
+                    <?php echo esc_html(get_theme_mod('marukan_original_philosophy', '私たちは食を通じて、美味しさと幸せを創造し、人々の明るい食生活に貢献します。')); ?>
                 </p>
             </div>
 
@@ -264,7 +264,7 @@
             <h2 class="text-3xl font-bold mb-12 text-center">会社概要</h2>
             <dl class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-y-6 text-sm md:text-base border-t border-gray-100 pt-8">
                 <dt class="font-bold text-gray-500">会社名</dt>
-                <dd><?php echo esc_html(get_theme_mod('marukan_company_name', '株式会社神戸まるかん')); ?></dd>
+                <dd><?php echo esc_html(get_theme_mod('marukan_original_company_name', '株式会社神戸まるかん')); ?></dd>
 
                 <dt class="font-bold text-gray-500">創立</dt>
                 <dd>1977年4月</dd>
@@ -280,7 +280,7 @@
 
                 <dt class="font-bold text-gray-500">所在地</dt>
                 <dd>
-                    <?php echo nl2br(esc_html(get_theme_mod('marukan_address', "〒658-0023 兵庫県神戸市東灘区深江浜町5番地の1"))); ?><br>
+                    <?php echo nl2br(esc_html(get_theme_mod('marukan_original_address', "〒658-0023 兵庫県神戸市東灘区深江浜町5番地の1"))); ?><br>
                     <a href="https://goo.gl/maps/FV8pMspQeqDC4dW47" target="_blank" class="text-marukanBlue underline mt-2 inline-block">Googleマップで見る</a>
                 </dd>
             </dl>
@@ -311,7 +311,7 @@
                 <div class="p-12">
                     <div class="cf7-container">
                         <?php
-                        $cf7_id = get_theme_mod('marukan_cf7_id');
+                        $cf7_id = get_theme_mod('marukan_original_cf7_id');
                         // If Contact Form 7 is active, display the form.
                         // Otherwise, display a helpful message.
                         if (shortcode_exists('contact-form-7')) {
