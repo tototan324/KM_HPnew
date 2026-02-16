@@ -72,7 +72,7 @@ get_header(); ?>
             <!-- Privacy Policy Notice -->
             <div class="mt-12 text-center text-sm text-gray-400">
                 <p>
-                    お問い合わせいただいた内容は、弊社の<a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="underline hover:text-marukanBlue">プライバシーポリシー</a>に基づき適切に管理いたします。
+                    お問い合わせいただいた内容は、弊社の<a href="<?php echo esc_url(marukan_get_permalink_by_slug('privacy-policy')); ?>" class="underline hover:text-marukanBlue">プライバシーポリシー</a>に基づき適切に管理いたします。
                 </p>
             </div>
         </div>

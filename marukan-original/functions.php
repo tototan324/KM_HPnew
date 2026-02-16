@@ -322,6 +322,17 @@ function marukan_original_ensure_pages() {
 add_action('init', 'marukan_original_ensure_pages');
 
 /**
+ * Helper to get permalink by slug
+ */
+function marukan_get_permalink_by_slug($slug, $post_type = 'page') {
+    $page = get_page_by_path($slug, OBJECT, $post_type);
+    if ($page) {
+        return get_permalink($page->ID);
+    }
+    return home_url('/' . $slug . '/'); // Fallback
+}
+
+/**
  * Plugin Recommendations and Integration
  * Recommended Plugins:
  * - Contact Form 7 (Best practice for flexible, free forms)

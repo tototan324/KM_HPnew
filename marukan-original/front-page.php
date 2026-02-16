@@ -395,9 +395,9 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <?php
             $recruit_links = array(
-                'new-graduate' => home_url('/recruit/new-graduate/'),
-                'career'       => home_url('/recruit/career/'),
-                'part-time'    => home_url('/recruit/part-time/')
+                'new-graduate' => marukan_get_permalink_by_slug('recruit/new-graduate'),
+                'career'       => marukan_get_permalink_by_slug('recruit/career'),
+                'part-time'    => marukan_get_permalink_by_slug('recruit/part-time')
             );
             ?>
             <!-- New Graduate -->
@@ -524,7 +524,10 @@
                 お客様の課題解決に最適なご提案をさせていただきます。
             </p>
             <div class="flex justify-center">
-                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="group relative inline-flex items-center gap-4 bg-marukanBlue text-white px-16 py-8 rounded-full text-2xl font-bold transition-all duration-500 hover:bg-blue-800 hover:-translate-y-2 hover:shadow-[0_20px_50px_-10px_rgba(0,64,152,0.5)]">
+                <?php
+                $contact_url = marukan_get_permalink_by_slug('contact');
+                ?>
+                <a href="<?php echo esc_url($contact_url); ?>" class="group relative inline-flex items-center gap-4 bg-marukanBlue text-white px-16 py-8 rounded-full text-2xl font-bold transition-all duration-500 hover:bg-blue-800 hover:-translate-y-2 hover:shadow-[0_20px_50px_-10px_rgba(0,64,152,0.5)]">
                     お問い合わせフォーム
                     <svg class="w-8 h-8 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>

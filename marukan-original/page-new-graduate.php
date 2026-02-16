@@ -68,7 +68,7 @@
             </section>
 
             <div class="text-center">
-                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="inline-flex items-center gap-4 bg-marukanBlue text-white px-12 py-6 rounded-full text-xl font-bold transition-all hover:bg-blue-800 hover:-translate-y-1 hover:shadow-xl">
+                <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact')->ID)); ?>" class="inline-flex items-center gap-4 bg-marukanBlue text-white px-12 py-6 rounded-full text-xl font-bold transition-all hover:bg-blue-800 hover:-translate-y-1 hover:shadow-xl">
                     エントリーする
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </a>

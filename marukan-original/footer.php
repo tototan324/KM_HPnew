@@ -21,8 +21,12 @@
             <div>
                 <h4 class="font-bold mb-4">メニュー</h4>
                 <ul class="text-sm text-gray-600 space-y-2">
-                    <li><a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="hover:text-marukanBlue">プライバシーポリシー</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/contact/')); ?>" class="hover:text-marukanBlue">お問い合わせ</a></li>
+                    <?php
+                    $privacy_url = marukan_get_permalink_by_slug('privacy-policy');
+                    $contact_url = marukan_get_permalink_by_slug('contact');
+                    ?>
+                    <li><a href="<?php echo esc_url($privacy_url); ?>" class="hover:text-marukanBlue">プライバシーポリシー</a></li>
+                    <li><a href="<?php echo esc_url($contact_url); ?>" class="hover:text-marukanBlue">お問い合わせ</a></li>
                     <li><a href="https://www.marukan.jp/" class="hover:text-marukanBlue">旧サイトはこちら</a></li>
                 </ul>
             </div>

@@ -51,9 +51,16 @@
                     <a href="<?php echo $home_url; ?>#news" class="text-sm font-bold hover:text-marukanBlue transition">お知らせ</a>
                     <a href="<?php echo $home_url; ?>#products-cases" class="text-sm font-bold hover:text-marukanBlue transition">商品案内・事例</a>
                     <a href="<?php echo $home_url; ?>#members" class="text-sm font-bold hover:text-marukanBlue transition">働く仲間</a>
-                    <a href="<?php echo $home_url; ?>#recruit" class="text-sm font-bold hover:text-marukanBlue transition">採用情報</a>
+                    <?php
+                    $recruit_page = get_page_by_path('recruit');
+                    $recruit_url = $recruit_page ? get_permalink($recruit_page->ID) : $home_url . '#recruit';
+                    ?>
+                    <a href="<?php echo esc_url($recruit_url); ?>" class="text-sm font-bold hover:text-marukanBlue transition">採用情報</a>
                     <a href="<?php echo $home_url; ?>#company" class="text-sm font-bold hover:text-marukanBlue transition">会社概要</a>
-                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="bg-marukanBlue text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-800 transition">お問い合わせ</a>
+                    <?php
+                    $contact_url = marukan_get_permalink_by_slug('contact');
+                    ?>
+                    <a href="<?php echo esc_url($contact_url); ?>" class="bg-marukanBlue text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-800 transition">お問い合わせ</a>
                     <?php
                 }
                 ?>
@@ -85,9 +92,16 @@
                     <a href="<?php echo $home_url; ?>#news" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">お知らせ</a>
                     <a href="<?php echo $home_url; ?>#products-cases" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">商品案内・導入事例</a>
                     <a href="<?php echo $home_url; ?>#members" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">働く仲間</a>
-                    <a href="<?php echo $home_url; ?>#recruit" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">採用情報</a>
+                    <?php
+                    $recruit_page = get_page_by_path('recruit');
+                    $recruit_url = $recruit_page ? get_permalink($recruit_page->ID) : $home_url . '#recruit';
+                    ?>
+                    <a href="<?php echo esc_url($recruit_url); ?>" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">採用情報</a>
                     <a href="<?php echo $home_url; ?>#company" class="text-lg font-bold py-2 border-b border-gray-100 mobile-link">会社概要</a>
-                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="bg-marukanBlue text-white px-6 py-4 rounded-xl text-center font-bold mobile-link">お問い合わせ</a>
+                    <?php
+                    $contact_url = marukan_get_permalink_by_slug('contact');
+                    ?>
+                    <a href="<?php echo esc_url($contact_url); ?>" class="bg-marukanBlue text-white px-6 py-4 rounded-xl text-center font-bold mobile-link">お問い合わせ</a>
                     <?php
                 }
                 ?>
