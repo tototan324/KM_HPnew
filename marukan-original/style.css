@@ -114,3 +114,49 @@ body {
     border-radius: 0.75rem !important;
     font-size: 0.875rem !important;
 }
+
+/* Micro-interactions & Bento Hover */
+.bento-hover {
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.bento-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px -15px rgba(0, 64, 152, 0.3);
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fade-in-up 1s ease-out forwards;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.3s ease-in-out forwards;
+}
+
+/* Swiper Customization */
+.hero-pagination-item.active .progress-bar {
+    /* Transition is handled via inline style in JS */
+}
+
+/* Bento Grid extra helpers */
+@media (min-width: 768px) {
+    .grid-rows-2 {
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+}

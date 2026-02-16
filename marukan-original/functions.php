@@ -65,6 +65,17 @@ function marukan_original_customize_register($wp_customize) {
         'type' => 'textarea',
     ));
 
+    // Mission Description
+    $wp_customize->add_setting('marukan_original_mission_desc', array(
+        'default' => '私たちは単に食品を届けるだけでなく、その先にある顧客の成功を見据え、共に歩むパートナーであり続けます。',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    $wp_customize->add_control('marukan_original_mission_desc', array(
+        'label' => __('Mission Description', 'marukan-original'),
+        'section' => 'marukan_original_info',
+        'type' => 'textarea',
+    ));
+
     // Mission
     $wp_customize->add_setting('marukan_original_mission', array(
         'default' => '美味しさと戦略をセットで届ける。顧客の繁盛を創る',
@@ -107,6 +118,50 @@ function marukan_original_customize_register($wp_customize) {
         'label' => __('Company Name', 'marukan-original'),
         'section' => 'marukan_original_info',
         'type' => 'text',
+    ));
+
+    // Setting: Establish Date
+    $wp_customize->add_setting('marukan_original_establish_date', array(
+        'default' => '1977年（昭和52年）12月',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('marukan_original_establish_date', array(
+        'label' => __('Establish Date', 'marukan-original'),
+        'section' => 'marukan_original_info',
+        'type' => 'text',
+    ));
+
+    // Setting: Capital
+    $wp_customize->add_setting('marukan_original_capital', array(
+        'default' => '3,000万円',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('marukan_original_capital', array(
+        'label' => __('Capital', 'marukan-original'),
+        'section' => 'marukan_original_info',
+        'type' => 'text',
+    ));
+
+    // Setting: CEO
+    $wp_customize->add_setting('marukan_original_ceo', array(
+        'default' => '代表取締役社長　西谷 賢亮',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('marukan_original_ceo', array(
+        'label' => __('CEO Name', 'marukan-original'),
+        'section' => 'marukan_original_info',
+        'type' => 'text',
+    ));
+
+    // Setting: Business Content
+    $wp_customize->add_setting('marukan_original_business', array(
+        'default' => "水産物卸売及び加工販売\n調理冷凍食品の製造販売\nスイーツの製造販売\n食品輸出入業務",
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+    $wp_customize->add_control('marukan_original_business', array(
+        'label' => __('Business Content', 'marukan-original'),
+        'section' => 'marukan_original_info',
+        'type' => 'textarea',
     ));
 
     // Setting: Address

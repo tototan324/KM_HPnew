@@ -27,8 +27,8 @@
     </script>
 </head>
 <body <?php body_class(); ?>>
-    <header class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-sm shadow-sm">
-        <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+    <header id="main-header" class="fixed w-full z-50 transition-all duration-500 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-4 h-20 md:h-24 flex items-center justify-between transition-all duration-500" id="header-container">
             <div class="logo">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="text-2xl font-bold text-marukanBlue tracking-tighter">
                     株式会社神戸まるかん
@@ -110,16 +110,35 @@
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
+                const header = document.getElementById('main-header');
+                const container = document.getElementById('header-container');
                 const button = document.getElementById('mobile-menu-button');
                 const menu = document.getElementById('mobile-menu');
                 const menuIcon = document.getElementById('menu-icon');
                 const closeIcon = document.getElementById('close-icon');
                 const links = document.querySelectorAll('.mobile-link');
 
+                // Header Scroll Effect
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('bg-white', 'shadow-lg');
+                        header.classList.remove('bg-white/80', 'backdrop-blur-md');
+                        container.classList.remove('md:h-24');
+                        container.classList.add('md:h-20');
+                    } else {
+                        header.classList.remove('bg-white', 'shadow-lg');
+                        header.classList.add('bg-white/80', 'backdrop-blur-md');
+                        container.classList.add('md:h-24');
+                        container.classList.remove('md:h-20');
+                    }
+                });
+
                 function toggleMenu() {
                     menu.classList.toggle('hidden');
+                    menu.classList.toggle('animate-fade-in');
                     menuIcon.classList.toggle('hidden');
                     closeIcon.classList.toggle('hidden');
+                    document.body.classList.toggle('overflow-hidden');
                 }
 
                 button.addEventListener('click', toggleMenu);
