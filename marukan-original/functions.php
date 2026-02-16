@@ -270,42 +270,52 @@ function marukan_original_flush_rewrite_rules() {
             'post_name'   => 'recruit',
             'post_status' => 'publish',
             'post_type'   => 'page',
+            'meta_input'  => array('_wp_page_template' => 'page-recruit.php')
         ));
     } else {
         $recruit_parent_id = $recruit_parent->ID;
+        update_post_meta($recruit_parent_id, '_wp_page_template', 'page-recruit.php');
     }
 
     $recruits = array(
-        'new-graduate' => '新卒採用',
-        'career'       => 'キャリア採用',
-        'part-time'    => '準社員・アルバイト採用'
+        'new-graduate' => array('title' => '新卒採用', 'template' => 'page-new-graduate.php'),
+        'career'       => array('title' => 'キャリア採用', 'template' => 'page-career.php'),
+        'part-time'    => array('title' => '準社員・アルバイト採用', 'template' => 'page-part-time.php')
     );
 
-    foreach ($recruits as $slug => $title) {
-        if (!get_page_by_path('recruit/' . $slug, OBJECT, 'page')) {
+    foreach ($recruits as $slug => $data) {
+        $page = get_page_by_path('recruit/' . $slug, OBJECT, 'page');
+        if (!$page) {
             wp_insert_post(array(
-                'post_title'  => $title,
+                'post_title'  => $data['title'],
                 'post_name'   => $slug,
                 'post_status' => 'publish',
                 'post_type'   => 'page',
                 'post_parent' => $recruit_parent_id,
+                'meta_input'  => array('_wp_page_template' => $data['template'])
             ));
+        } else {
+            update_post_meta($page->ID, '_wp_page_template', $data['template']);
         }
     }
 
     // Other top-level pages
     $other_pages = array(
-        'contact'        => 'お問い合わせ',
-        'privacy-policy' => 'プライバシーポリシー'
+        'contact'        => array('title' => 'お問い合わせ', 'template' => 'page-contact.php'),
+        'privacy-policy' => array('title' => 'プライバシーポリシー', 'template' => 'page-privacy-policy.php')
     );
-    foreach ($other_pages as $slug => $title) {
-        if (!get_page_by_path($slug, OBJECT, 'page')) {
+    foreach ($other_pages as $slug => $data) {
+        $page = get_page_by_path($slug, OBJECT, 'page');
+        if (!$page) {
             wp_insert_post(array(
-                'post_title'  => $title,
+                'post_title'  => $data['title'],
                 'post_name'   => $slug,
                 'post_status' => 'publish',
                 'post_type'   => 'page',
+                'meta_input'  => array('_wp_page_template' => $data['template'])
             ));
+        } else {
+            update_post_meta($page->ID, '_wp_page_template', $data['template']);
         }
     }
 }

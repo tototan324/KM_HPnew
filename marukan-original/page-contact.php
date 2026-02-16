@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: お問い合わせ
+ * Template Name: お問い合わせ（フォーム）
  */
 get_header(); ?>
 

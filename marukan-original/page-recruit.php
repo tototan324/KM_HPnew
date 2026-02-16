@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template Name: 採用情報（一覧）
+ */
+get_header(); ?>
 
 <div class="pt-32 pb-24 bg-gray-50">
     <div class="container mx-auto px-4">
