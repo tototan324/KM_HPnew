@@ -250,27 +250,6 @@ function marukan_original_register_post_types() {
     );
     register_post_type('member', $member_args);
 
-    // Recruitment (Recruit) - Hierarchical like pages
-    $recruit_labels = array(
-        'name' => _x('採用情報', 'Post Type General Name', 'marukan-original'),
-        'singular_name' => _x('採用情報', 'Post Type Singular Name', 'marukan-original'),
-        'menu_name' => __('採用情報', 'marukan-original'),
-    );
-    $recruit_args = array(
-        'label' => __('採用情報', 'marukan-original'),
-        'labels' => $recruit_labels,
-        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
-        'hierarchical' => true,
-        'public' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'menu_position' => 8,
-        'menu_icon' => 'dashicons-businessman',
-        'has_archive' => true,
-        'rewrite' => array('slug' => 'recruit', 'with_front' => false),
-        'show_in_rest' => true,
-    );
-    register_post_type('recruit', $recruit_args);
 }
 add_action('init', 'marukan_original_register_post_types');
 
@@ -281,20 +260,51 @@ function marukan_original_flush_rewrite_rules() {
     marukan_original_register_post_types();
     flush_rewrite_rules();
 
-    // Auto-create recruitment posts if they don't exist
+    // Auto-create recruitment PAGES if they don't exist
+    // Parent Recruit page
+    $recruit_parent_id = 0;
+    $recruit_parent = get_page_by_path('recruit', OBJECT, 'page');
+    if (!$recruit_parent) {
+        $recruit_parent_id = wp_insert_post(array(
+            'post_title'  => '採用情報',
+            'post_name'   => 'recruit',
+            'post_status' => 'publish',
+            'post_type'   => 'page',
+        ));
+    } else {
+        $recruit_parent_id = $recruit_parent->ID;
+    }
+
     $recruits = array(
         'new-graduate' => '新卒採用',
-        'career'       => '中途採用',
-        'part-time'    => 'パート・アルバイト採用'
+        'career'       => 'キャリア採用',
+        'part-time'    => '準社員・アルバイト採用'
     );
 
     foreach ($recruits as $slug => $title) {
-        if (!get_page_by_path($slug, OBJECT, 'recruit')) {
+        if (!get_page_by_path('recruit/' . $slug, OBJECT, 'page')) {
             wp_insert_post(array(
                 'post_title'  => $title,
                 'post_name'   => $slug,
                 'post_status' => 'publish',
-                'post_type'   => 'recruit',
+                'post_type'   => 'page',
+                'post_parent' => $recruit_parent_id,
+            ));
+        }
+    }
+
+    // Other top-level pages
+    $other_pages = array(
+        'contact'        => 'お問い合わせ',
+        'privacy-policy' => 'プライバシーポリシー'
+    );
+    foreach ($other_pages as $slug => $title) {
+        if (!get_page_by_path($slug, OBJECT, 'page')) {
+            wp_insert_post(array(
+                'post_title'  => $title,
+                'post_name'   => $slug,
+                'post_status' => 'publish',
+                'post_type'   => 'page',
             ));
         }
     }

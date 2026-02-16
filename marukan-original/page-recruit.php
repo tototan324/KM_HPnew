@@ -8,7 +8,17 @@
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <?php
+            $args = array(
+                'post_type'      => 'page',
+                'posts_per_page' => -1,
+                'post_parent'    => get_the_ID(),
+                'orderby'        => 'menu_order',
+                'order'          => 'ASC',
+            );
+            $child_query = new WP_Query($args);
+            if ($child_query->have_posts()) : while ($child_query->have_posts()) : $child_query->the_post();
+            ?>
                 <article class="bg-white p-10 rounded-[2.5rem] shadow-sm hover:shadow-2xl hover:shadow-marukanBlue/20 hover:-translate-y-2 transition-all duration-500 border border-gray-100 flex flex-col justify-between">
                     <div>
                         <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8">
@@ -24,7 +34,7 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </a>
                 </article>
-            <?php endwhile; endif; ?>
+            <?php endwhile; wp_reset_postdata(); endif; ?>
         </div>
     </div>
 </div>
