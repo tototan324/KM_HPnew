@@ -1,8 +1,4 @@
-<?php
-/**
- * Template Name: パート・アルバイト採用
- */
-get_header(); ?>
+<?php get_header(); ?>
 
 <div class="pt-32 pb-24 bg-white">
     <div class="container mx-auto px-4">

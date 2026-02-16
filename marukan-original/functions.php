@@ -249,8 +249,67 @@ function marukan_original_register_post_types() {
         'show_in_rest' => true,
     );
     register_post_type('member', $member_args);
+
+    // Recruitment (Recruit) - Hierarchical like pages
+    $recruit_labels = array(
+        'name' => _x('採用情報', 'Post Type General Name', 'marukan-original'),
+        'singular_name' => _x('採用情報', 'Post Type Singular Name', 'marukan-original'),
+        'menu_name' => __('採用情報', 'marukan-original'),
+    );
+    $recruit_args = array(
+        'label' => __('採用情報', 'marukan-original'),
+        'labels' => $recruit_labels,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
+        'hierarchical' => true,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 8,
+        'menu_icon' => 'dashicons-businessman',
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'recruit', 'with_front' => false),
+        'show_in_rest' => true,
+    );
+    register_post_type('recruit', $recruit_args);
 }
 add_action('init', 'marukan_original_register_post_types');
+
+/**
+ * Flush rewrite rules on theme activation
+ */
+function marukan_original_flush_rewrite_rules() {
+    marukan_original_register_post_types();
+    flush_rewrite_rules();
+
+    // Auto-create recruitment posts if they don't exist
+    $recruits = array(
+        'new-graduate' => '新卒採用',
+        'career'       => '中途採用',
+        'part-time'    => 'パート・アルバイト採用'
+    );
+
+    foreach ($recruits as $slug => $title) {
+        if (!get_page_by_path($slug, OBJECT, 'recruit')) {
+            wp_insert_post(array(
+                'post_title'  => $title,
+                'post_name'   => $slug,
+                'post_status' => 'publish',
+                'post_type'   => 'recruit',
+            ));
+        }
+    }
+}
+add_action('after_switch_theme', 'marukan_original_flush_rewrite_rules');
+
+// Also run on init once if a special flag is set or just check existence
+function marukan_original_ensure_pages() {
+    if (isset($_GET['setup_marukan_pages'])) {
+        marukan_original_flush_rewrite_rules();
+        echo "Pages setup complete.";
+        exit;
+    }
+}
+add_action('init', 'marukan_original_ensure_pages');
 
 /**
  * Plugin Recommendations and Integration
