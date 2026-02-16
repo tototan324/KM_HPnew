@@ -241,39 +241,67 @@
         </div>
 
         <div class="max-w-5xl mx-auto space-y-12">
-            <!-- Member 1 -->
-            <div class="bg-white p-10 rounded-[3rem] shadow-sm flex flex-col md:flex-row gap-10 bento-hover">
-                <div class="w-full md:w-1/3 shrink-0">
-                    <div class="aspect-[4/5] rounded-2xl overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" alt="佐藤 結衣" class="w-full h-full object-cover">
+            <?php
+            $member_query = new WP_Query(array('post_type' => 'member', 'posts_per_page' => -1));
+            if ($member_query->have_posts()) :
+                while ($member_query->have_posts()) : $member_query->the_post();
+                    $dept = get_post_meta(get_the_ID(), 'member_dept', true);
+            ?>
+                <div class="bg-white p-10 rounded-[3rem] shadow-sm flex flex-col md:flex-row gap-10 bento-hover">
+                    <div class="w-full md:w-1/3 shrink-0">
+                        <div class="aspect-[4/5] rounded-2xl overflow-hidden">
+                            <?php if (has_post_thumbnail()) : the_post_thumbnail('large', array('class' => 'w-full h-full object-cover')); else : ?>
+                                <div class="w-full h-full bg-gray-100 flex items-center justify-center text-gray-300">
+                                    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <?php if ($dept) : ?>
+                            <span class="inline-block bg-blue-50 text-marukanBlue text-xs font-bold px-4 py-1 rounded-full mb-6 w-fit"><?php echo esc_html($dept); ?></span>
+                        <?php endif; ?>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6 leading-snug"><?php echo strip_tags(get_the_excerpt()); ?></h3>
+                        <div class="text-gray-600 text-lg leading-relaxed mb-8">
+                            <?php the_content(); ?>
+                        </div>
+                        <p class="font-bold text-xl text-marukanBlue"><?php the_title(); ?></p>
                     </div>
                 </div>
-                <div class="flex flex-col justify-center">
-                    <span class="inline-block bg-blue-50 text-marukanBlue text-xs font-bold px-4 py-1 rounded-full mb-6 w-fit">営業本部 / 2018年入社</span>
-                    <h3 class="text-2xl md:text-3xl font-bold mb-6 leading-snug">「食のプロとして、お客様の期待を超える提案を」</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                        単に商品を売るのではなく、その先の消費者が何を求めているかを常に考え提案しています。お客様と共に悩み、喜びを分かち合えるパートナーでありたいと考えています。
-                    </p>
-                    <p class="font-bold text-xl text-marukanBlue">佐藤 結衣 <span class="text-xs text-gray-400 ml-2 font-normal uppercase tracking-widest">Sato Yui</span></p>
+            <?php endwhile; wp_reset_postdata(); else : ?>
+                <!-- Fallback if no members are registered -->
+                <div class="bg-white p-10 rounded-[3rem] shadow-sm flex flex-col md:flex-row gap-10 bento-hover">
+                    <div class="w-full md:w-1/3 shrink-0">
+                        <div class="aspect-[4/5] rounded-2xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800" alt="佐藤 結衣" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <span class="inline-block bg-blue-50 text-marukanBlue text-xs font-bold px-4 py-1 rounded-full mb-6 w-fit">営業本部 / 2018年入社</span>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6 leading-snug">「食のプロとして、お客様の期待を超える提案を」</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                            単に商品を売るのではなく、その先の消費者が何を求めているかを常に考え提案しています。お客様と共に悩み、喜びを分かち合えるパートナーでありたいと考えています。
+                        </p>
+                        <p class="font-bold text-xl text-marukanBlue">佐藤 結衣 <span class="text-xs text-gray-400 ml-2 font-normal uppercase tracking-widest">Sato Yui</span></p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Member 2 -->
-            <div class="bg-white p-10 rounded-[3rem] shadow-sm flex flex-col md:flex-row gap-10 bento-hover">
-                <div class="w-full md:w-1/3 shrink-0">
-                    <div class="aspect-[4/5] rounded-2xl overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="田中 健二" class="w-full h-full object-cover">
+                <div class="bg-white p-10 rounded-[3rem] shadow-sm flex flex-col md:flex-row gap-10 bento-hover">
+                    <div class="w-full md:w-1/3 shrink-0">
+                        <div class="aspect-[4/5] rounded-2xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="田中 健二" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <span class="inline-block bg-blue-50 text-marukanBlue text-xs font-bold px-4 py-1 rounded-full mb-6 w-fit">製造部 / 2010年入社</span>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6 leading-snug">「安全・安心、そして美味しさへの責任」</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                            最新の設備と職人の知恵を融合させ、神戸から全国へ最高の品質をお届けしています。日々の徹底した管理が、多くの人々の笑顔に繋がっていることを誇りに思います。
+                        </p>
+                        <p class="font-bold text-xl text-marukanBlue">田中 健二 <span class="text-xs text-gray-400 ml-2 font-normal uppercase tracking-widest">Tanaka Kenji</span></p>
                     </div>
                 </div>
-                <div class="flex flex-col justify-center">
-                    <span class="inline-block bg-blue-50 text-marukanBlue text-xs font-bold px-4 py-1 rounded-full mb-6 w-fit">製造部 / 2010年入社</span>
-                    <h3 class="text-2xl md:text-3xl font-bold mb-6 leading-snug">「安全・安心、そして美味しさへの責任」</h3>
-                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                        最新の設備と職人の知恵を融合させ、神戸から全国へ最高の品質をお届けしています。日々の徹底した管理が、多くの人々の笑顔に繋がっていることを誇りに思います。
-                    </p>
-                    <p class="font-bold text-xl text-marukanBlue">田中 健二 <span class="text-xs text-gray-400 ml-2 font-normal uppercase tracking-widest">Tanaka Kenji</span></p>
-                </div>
-            </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
@@ -292,12 +320,33 @@
 
             <div class="space-y-24">
                 <?php
-                $history_items = [
-                    ['year' => '1977', 'title' => '創業', 'text' => '神戸市中央区に前身となるマルカン商事株式会社を設立。'],
-                    ['year' => '2005', 'title' => '工場設立', 'text' => '本社機能を東灘区に移転し、本社敷地内に工場を設立。自社製造を開始。'],
-                    ['year' => '2017', 'title' => '新体制', 'text' => '株式会社神明グループに参画。より強固な経営基盤を構築。'],
-                    ['year' => '2022', 'title' => '品質の証明', 'text' => '神戸工場にてISO22000認証取得。世界基準の安全性を確保。'],
-                ];
+                $history_raw = get_theme_mod('marukan_original_history');
+                $history_items = [];
+
+                if (!empty($history_raw)) {
+                    $lines = explode("\n", str_replace("\r", "", $history_raw));
+                    foreach ($lines as $line) {
+                        $parts = explode('|', $line);
+                        if (count($parts) >= 2) {
+                            $history_items[] = [
+                                'year'  => trim($parts[0]),
+                                'title' => trim($parts[1]),
+                                'text'  => isset($parts[2]) ? trim($parts[2]) : ''
+                            ];
+                        }
+                    }
+                }
+
+                // Fallback to defaults if empty
+                if (empty($history_items)) {
+                    $history_items = [
+                        ['year' => '1977', 'title' => '創業', 'text' => '神戸市中央区に前身となるマルカン商事株式会社を設立。'],
+                        ['year' => '2005', 'title' => '工場設立', 'text' => '本社機能を東灘区に移転し、本社敷地内に工場を設立。自社製造を開始。'],
+                        ['year' => '2017', 'title' => '新体制', 'text' => '株式会社神明グループに参画。より強固な経営基盤を構築。'],
+                        ['year' => '2022', 'title' => '品質の証明', 'text' => '神戸工場にてISO22000認証取得。世界基準の安全性を確保。'],
+                    ];
+                }
+
                 foreach ($history_items as $index => $item) :
                     $is_even = $index % 2 === 1;
                 ?>
