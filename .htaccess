@@ -1,6 +1,6 @@
 ##### Zenlogic HTTPS Redirect Start #####
 RewriteEngine on
-RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 ##### Zenlogic HTTPS Redirect End #####
 
