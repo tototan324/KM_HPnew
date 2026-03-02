@@ -3,6 +3,33 @@
  * marukan-original Theme functions and definitions
  */
 
+/**
+ * Fix for HTTPS behind reverse proxy (Zenlogic)
+ * Ensures WordPress generates https:// URLs correctly
+ */
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+    $_SERVER['HTTPS'] = 'on';
+    $_SERVER['SERVER_PORT'] = 443;
+}
+
+/**
+ * Output Buffer to replace any remaining http:// with https:// (Brute-force SSL fix)
+ */
+function marukan_original_ssl_fix($html) {
+    // Replace all occurrences of http://test.marukan.jp with https://
+    $site_url = str_replace(['https://', 'http://'], '', home_url());
+    $html = str_replace('http://' . $site_url, 'https://' . $site_url, $html);
+
+    // Also catch common SVG namespaces and other strings just in case
+    $html = str_replace('xmlns="http://www.w3.org/2000/svg"', 'xmlns="https://www.w3.org/2000/svg"', $html);
+
+    return $html;
+}
+function marukan_original_buffer_start() { ob_start("marukan_original_ssl_fix"); }
+function marukan_original_buffer_end() { ob_end_flush(); }
+add_action('init', 'marukan_original_buffer_start');
+add_action('shutdown', 'marukan_original_buffer_end');
+
 function marukan_original_setup() {
     // Add theme support
     add_theme_support('title-tag');
